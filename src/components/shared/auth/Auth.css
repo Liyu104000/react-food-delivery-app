@@ -1,0 +1,103 @@
+.auth-container{
+  background-color: white;
+  width: 55vw;
+  height: 100vh;
+  margin: 55px auto 0 auto;
+  border-radius: 20px;
+  display: flex;
+}
+
+/*Signin & Register styles*/
+
+.auth-card{
+  width: 55%;
+}
+
+.auth-heading{
+ font-size: 28px;
+ font-weight: 600;
+ margin-top: 4px;
+ margin-bottom: 8px;
+ padding-left: 37px;
+}
+
+.auth-sub-heading{
+  font-size: 16px;
+  font-weight: normal;
+  padding-left: 65px;
+  margin-bottom: 32px;
+}
+
+.auth-form{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 14px;
+}
+
+.auth-input{
+  position: relative;
+  width: 100%;
+}
+
+.auth-input input{
+  background-color: rgb(250, 250, 250);
+  width: 280px;
+  border-radius: 6px;
+  border: 1px solid rgb(229, 231, 235);
+  margin-left: 40px;
+  margin-bottom: 14px;
+  padding: 12px 0px 12px 16px;
+  
+}
+
+.auth-input input:focus{
+ outline: none;
+ border: 2px solid rgb(209, 213, 219);
+ box-shadow: 0 0 0 0.3px rgba(209, 213, 219);
+}
+
+.auth-input input::placeholder{
+  color: rgb(156, 163, 175);
+}
+
+
+.auth-icon{
+  position: absolute;
+  right: 65px;
+  bottom: 28px;
+}
+
+.auth-btn{
+  font-weight: 600;
+  text-align: center;
+  width: 300px;
+  margin-left: 40px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.auth-btn:hover{
+  background-color: rgb(207, 79, 3);
+}
+
+.auth-footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.auth-link-msg{
+  font-size: 16px;
+}
+
+.auth-link{
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(214, 90, 58);
+  text-decoration: none;
+}
+
+.auth-link:visited{
+  color: rgb(201,74,58);
+}

@@ -1,0 +1,9 @@
+.profile-sidebar-container{
+  background-color: rgb(235, 235, 235);
+  width: 300px;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+}
+

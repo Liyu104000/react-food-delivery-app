@@ -1,0 +1,37 @@
+/*Checkout Page Layout */
+.checkout-layout{
+  display: flex;
+  gap: 24px;
+  padding-top: 140px;
+  padding-left: 150px;
+}
+
+.left-column{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/*Shared Component Styles: DeliveryDetails, PaymentDetails, & Recommendation*/
+
+.checkout-container{
+  background-color: white;
+  border-radius: 20px;
+}
+
+.checkout-flex{
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.checkout-icon{
+  margin-left: 6px;
+  cursor: pointer;
+}
+
+#payment-details-icon, #rec-icon{
+  margin-left: 0;
+}
+
+

@@ -1,0 +1,45 @@
+.utility-header{
+  background-color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 1;
+}
+
+.utility-header::after {
+  content: "";
+  width: 165px;
+}
+
+.home-link-container{
+  display: flex;
+  align-items: center;
+  width: 165px;
+}
+
+#utility-icon{
+  margin-left: 24px;
+  margin-right: 14px;
+}
+
+#home-link{
+  color: black;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+#home-link:visited{
+  color: black;
+  font-weight: bold;
+}
+
+
+#utility-logo{
+  width: 150px;
+}

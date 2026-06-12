@@ -1,0 +1,16 @@
+#home-heading{
+  color: rgb(51, 51, 51);
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  padding-top: 130px;
+}
+
+.home-content-flex {
+  display: flex;
+  align-items: flex-start; 
+}
+
+.delivery-info-container{
+  display: flex;
+}

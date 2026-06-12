@@ -1,0 +1,28 @@
+.saved-card-info{
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#saved-card-logo{
+  width: 60px;
+  margin-left: 10px;
+}
+
+#saved-card-type{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+#saved-card-no{
+  font-size: 12px;
+}
+
+
+
+
+
+
+
+

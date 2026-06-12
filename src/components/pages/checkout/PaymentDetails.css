@@ -1,0 +1,95 @@
+#payment-details-card{
+  width: 450px;
+  height: 470px;
+}
+
+.payment-details-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px 0;
+}
+
+#payment-details-heading, #payment-charges-heading{
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#payment-charges-heading, .payment-charges-grid{
+  padding-left: 20px;
+}
+
+#checkout-total-quantity{
+  font-size: 15px;
+  color: rgb(120, 120, 120);
+}
+
+#payment-details-flex{
+ align-items: start;
+}
+
+#payment-details-img{
+  width: 90px;
+  height: 90px;
+  border-radius: 12px;
+  margin-left: 14px;
+}
+
+.product-details-container{
+  margin-top: 14px;
+}
+
+.delete-product-flex{
+  display: flex;
+  align-items: center;
+  gap: 140px;
+}
+
+#checkout-product-name{
+  font-size: 14px;
+  margin-bottom: 8px;
+}
+
+.product-meta-flex{
+  display: flex;
+  gap: 40px;
+}
+
+#product-quantity{
+  font-size: 14px;
+}
+
+#payment-charges-heading{
+  padding-bottom: 6px;
+}
+
+.payment-charges-grid{
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  row-gap: 12px;
+  font-size: 14px;
+}
+
+#payment-discount{
+  color: red;
+}
+
+#payment-total{
+  font-size: 18px;
+  font-weight: 500;
+  text-align: right;
+  padding-right: 20px;
+  margin-top: 15px;
+  margin-bottom: 60px;
+}
+
+.payment-btn{
+  width: 70%;
+  display: block;
+  padding: 12px 24px;
+  margin: 0 auto;
+}
+
+
+
+

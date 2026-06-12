@@ -1,0 +1,9 @@
+.product-container{
+  width: 1360px;
+  height: 500px;
+  position: relative;
+  top: 120px;
+  left: 20px;
+  display: flex;
+  gap: 60px;
+}

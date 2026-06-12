@@ -1,0 +1,31 @@
+#delivery-details-card{
+  width: 500px;
+  height: 200px;
+}
+
+#delivery-date{
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 20px 0;
+}
+
+.row-heading{
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 6px;
+}
+
+.row-body{
+  font-size: 12px;
+}
+
+.edit-btn{
+  background-color: white;
+  color: rgb(0,123,255);
+  font-weight: lighter;
+  border: none;
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+

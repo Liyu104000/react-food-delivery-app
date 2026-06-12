@@ -1,0 +1,67 @@
+.nav-header{
+  background-color: white;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 1;
+}
+
+#nav-logo{
+  width: 150px;
+  padding-left: 10px;
+  margin-top: 0;
+  vertical-align: top;
+}
+
+
+.navbar{
+  display: flex;
+  align-items: center;
+}
+
+.nav-item{
+  color: black;
+  text-decoration: none;
+  margin-right: 50px;
+}
+
+.nav-item:visited{
+  color: black;
+}
+
+
+.nav-item.is-selected{
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+
+.cart-container{
+  margin-right: 40px;
+  position: relative;
+  display: flex;  
+  align-items: center;
+  cursor: pointer;
+}
+
+#cart-quantity{
+  background-color: rgb(204,85,34);
+  color: white;
+  text-align: center;
+  font-size: 14px;
+  font-weight: bold;
+  width: 20px;      
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}

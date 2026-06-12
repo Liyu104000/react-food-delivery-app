@@ -1,0 +1,53 @@
+.product-img{
+  width: 100%;
+  height: 50%;
+  object-fit: cover; 
+  object-position: 25% 40%;
+  display: block;
+  margin-bottom: 20px;
+}
+
+
+.product-name{
+  color: rgb(51, 51, 51);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.product-price-flex{
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.current-price, .discount-price{
+  font-size: 14px;
+}
+
+.current-price{
+  text-decoration: line-through;
+}
+
+.discount-price{
+  color: red;
+  font-weight: 500;
+}
+
+.quantity-selec{
+  width: 50px;
+  padding-left: 4px;
+  border-color: rgb(209, 213, 219);
+  border-radius: 4px;
+}
+
+.quantity-selec:focus {
+ outline: none;
+ border: 2px solid rgb(209, 213, 219);
+ box-shadow: 0 0 0 0.3px rgba(209, 213, 219);
+}
+
+.product-btn{
+  padding: 4px 0;
+  font-weight: 500;
+}
