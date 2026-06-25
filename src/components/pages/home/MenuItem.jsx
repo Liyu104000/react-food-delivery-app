@@ -31,7 +31,7 @@ export function MenuItem() {
             </div>
           </section>
 
-          <button className="product-btn default-btn" id="add-cart-btn">Add To Cart</button>
+          <button className="product-btn btn-primary" id="add-cart-btn">Add To Cart</button>
         </article>
 
         <article className="product-card">
@@ -58,7 +58,7 @@ export function MenuItem() {
             </select>
           </section>
 
-          <button className="product-btn default-btn" id="add-cart-btn">Add To Cart</button>
+          <button className="product-btn btn-primary" id="add-cart-btn">Add To Cart</button>
         </article>
       </section>
     </section>

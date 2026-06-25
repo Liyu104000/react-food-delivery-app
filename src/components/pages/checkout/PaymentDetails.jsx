@@ -62,7 +62,7 @@ export function PaymentDetails() {
       <footer>
         <p id="payment-total">Total: RM 15.79</p>
 
-        <button className="payment-btn default-btn" onClick={() => navigate("/payment")}>Continue To Payment</button>
+        <button className="payment-btn btn-primary" onClick={() => navigate("/payment")}>Continue To Payment</button>
       </footer>
     </section>
   );

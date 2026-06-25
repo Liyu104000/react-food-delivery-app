@@ -46,7 +46,7 @@ export function PaymentForm() {
         </fieldset>
       </form>
 
-      <button className="order-btn default-btn" onClick={() => navigate("/myorders")}>Place Order</button>
+      <button className="order-btn btn-primary" onClick={() => navigate("/myorders")}>Place Order</button>
     </section>
   );
 }

@@ -35,7 +35,7 @@ export function SavedAddresses() {
       </fieldset>
 
       <footer className="saved-method-footer">
-        <button className="default-btn add-new-btn">Add New Address</button>
+        <button className="btn-primary add-new-btn">Add New Address</button>
       </footer>
     </form>
   );

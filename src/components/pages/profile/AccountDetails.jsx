@@ -41,9 +41,9 @@ export function AccountDetails() {
       </div>
 
       <footer className="account-management-actions" id="account-details-buttons">
-        <button className="default-btn save-changes-btn" id="save-account-details">Save Changes</button>
+        <button className="btn-primary save-changes-btn" id="save-account-details">Save Changes</button>
 
-        <button className="default-btn discard-changes-btn" id="discard-account-details">Discard Changes</button>
+        <button className="btn-primary discard-changes-btn" id="discard-account-details">Discard Changes</button>
       </footer>
     </form>
   );

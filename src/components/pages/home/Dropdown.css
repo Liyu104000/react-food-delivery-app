@@ -89,7 +89,7 @@
   margin-bottom: 6px;
 }
 
-.default-btn.confirm-btn{
+.btn-primary.confirm-btn{
   background-color: rgb(0, 128, 0);
   font-weight: 600;
   display: block;

@@ -25,9 +25,9 @@ export function UpdatePassword() {
       </div>
 
       <footer className="account-management-actions" id="update-password-buttons">
-        <button className="default-btn save-changes-btn" id="save-address">Save Changes</button>
+        <button className="btn-primary save-changes-btn" id="save-address">Save Changes</button>
 
-        <button className="default-btn discard-changes-btn" id="discard-address">
+        <button className="btn-primary discard-changes-btn" id="discard-address">
           Discard Changes
         </button>
       </footer>

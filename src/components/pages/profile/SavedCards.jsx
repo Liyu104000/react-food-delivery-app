@@ -41,7 +41,7 @@ export function SavedCards() {
       </fieldset>
 
       <footer className="saved-method-footer">
-        <button className="default-btn add-new-btn">Add New Card</button>
+        <button className="btn-primary add-new-btn">Add New Card</button>
       </footer>
     </form>
   );

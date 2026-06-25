@@ -68,7 +68,7 @@ export function RegisterForm() {
         </div>
       </form>
 
-      <button className="auth-btn default-btn" onClick={() => navigate("/signin")} id="register-btn">Register</button>
+      <button className="auth-btn btn-primary" onClick={() => navigate("/signin")} id="register-btn">Register</button>
 
       <footer className="auth-footer">
         <p className="auth-link-msg">

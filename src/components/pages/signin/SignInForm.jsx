@@ -39,7 +39,7 @@ export function SignInForm() {
         </div>
       </form>
 
-      <button className="auth-btn default-btn" id="sign-in-btn" onClick={() => navigate("/")}>
+      <button className="auth-btn btn-primary" id="sign-in-btn" onClick={() => navigate("/")}>
         Sign In
       </button>
 

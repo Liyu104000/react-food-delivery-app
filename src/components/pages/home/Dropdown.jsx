@@ -43,7 +43,7 @@ export function Dropdown() {
         </section>
 
         <footer>
-          <button className="default-btn confirm-btn">Confirm</button>
+          <button className="btn-primary confirm-btn">Confirm</button>
         </footer>
       </div>
     </section>

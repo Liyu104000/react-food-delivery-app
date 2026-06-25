@@ -1,4 +1,37 @@
-.body{
+body{
+  background-color: rgb(247,243,238);
+  font-family: Inter;
+}
+
+p{
   margin: 0;
   padding: 0;
+}
+
+.btn-primary{
+  background-color: rgb(232,93,4);
+  box-shadow: 0 4px 12px rgba(232, 93, 4, 0.3);
+  color: white;
+  font-family: inherit;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 10px;
+}
+
+.btn-primary:hover{
+  background-color: rgb(207, 79, 3);
+}
+
+fieldset{
+  border: none;
+  padding: 0;
+  margin: 0;
+  min-width: 0;
+}
+
+.company-logo{
+  padding-left: 60px;
+  width: 155px;
+  margin-top: 10px;
 }

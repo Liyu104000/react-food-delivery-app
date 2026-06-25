@@ -30,7 +30,7 @@ export function ProductDetail() {
       </section>
 
       <section>
-        <button className="update-btn default-btn">
+        <button className="update-btn btn-primary">
           Update Cart
         </button>
       </section>
