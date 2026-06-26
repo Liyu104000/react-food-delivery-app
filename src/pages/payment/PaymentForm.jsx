@@ -1,7 +1,7 @@
-import CompanyLogo from "../../../assets/images/companylogo.png";
-import CreditLogo from "../../../assets/images/mastercard.png";
-import MoneyLogo from "../../../assets/images/money.png";
-import { useNavigate } from "react-router-dom";
+import CompanyLogo from "../../assets/images/companylogo.png";
+import CreditLogo from "../../assets/images/mastercard.png";
+import MoneyLogo from "../../assets/images/money.png";
+import { useNavigate } from "react-router";
 import "./PaymentForm.css";
 
 export function PaymentForm() {

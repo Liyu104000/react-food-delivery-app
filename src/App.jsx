@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router";
-import { Home } from "./components/pages/home/Home"
-import { Profile } from "./components/pages/profile/Profile";
-import { Order } from "./components/pages/order/Order";
-import { SignIn } from "./components/pages/signin/SignIn"
-import { Register } from "./components/pages/register/Register"
-import {Checkout } from "./components/pages/checkout/Checkout"
-import {Payment } from "./components/pages/payment/Payment"
+import { Home } from "./components/home/Home"
+import { Profile } from "./components/profile/Profile";
+import { Order } from "./components/order/Order";
+import { SignIn } from "./components/auth/SignIn"
+import { Register } from "./components/auth/Register"
+import {Checkout } from "./components/auth/Checkout"
+import {Payment } from "./components/auth/Payment"
 import './App.css'
 
 function App() {

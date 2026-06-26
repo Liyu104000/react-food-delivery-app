@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faUserCircle,faCreditCard,faLocationDot,faKey,faSignOut,faTrashCan} from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import "./ProfileSideBar.css";
 
 export function ProfileSideBar() {

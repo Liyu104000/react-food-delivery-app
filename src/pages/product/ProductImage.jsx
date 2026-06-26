@@ -1,4 +1,4 @@
-import Macaroni from "../../../assets/images/macaroni.jpg";
+import Macaroni from "../../assets/images/macaroni.jpg";
 import "./ProductImage.css";
 
 export function ProductImage() {

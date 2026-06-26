@@ -1,12 +1,17 @@
-import CompanyLogo from "../../../assets/images/companylogo.png";
+import CompanyLogo from "../../assets/images/companylogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router";
 import "../../shared/auth/Auth.css";
 import "./SignInForm.css";
 
 export function SignInForm() {
   const navigate = useNavigate();
+
+  const goToHome = () => {
+    navigate("/")
+  }
+
 
   return (
     <section className="auth-card">
@@ -39,7 +44,7 @@ export function SignInForm() {
         </div>
       </form>
 
-      <button className="auth-btn btn-primary" id="sign-in-btn" onClick={() => navigate("/")}>
+      <button className="auth-btn btn-primary" id="sign-in-btn" onClick={goToHome}>
         Sign In
       </button>
 

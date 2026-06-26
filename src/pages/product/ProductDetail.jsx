@@ -1,7 +1,8 @@
-import Macaroni from "../../../assets/images/macaroni.jpg";
-import AppleJuice from "../../../assets/images/apple_juice.jpg";
-import "./ProductDetail.css";
+import Macaroni from "../../assets/images/macaroni.jpg";
+import AppleJuice from "../../assets/images/apple_juice.jpg";
 import "../../shared/product/ProductShared.css";
+import "./ProductDetail.css";
+
 export function ProductDetail() {
   return (
     <article className="product-detail-container">

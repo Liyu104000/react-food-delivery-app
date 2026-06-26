@@ -1,4 +1,4 @@
-import CreditLogo from "../../../assets/images/mastercard.png";
+import CreditLogo from "../../assets/images/mastercard.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import "./SavedCards.css";

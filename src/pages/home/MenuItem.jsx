@@ -1,7 +1,8 @@
-import Macaroni from "../../../assets/images/macaroni.jpg";
-import AppleJuice from "../../../assets/images/apple_juice.jpg";
-import "./MenuItem.css";
+import Macaroni from "../../assets/images/macaroni.jpg";
+import AppleJuice from "../../assets/images/apple_juice.jpg";
 import "../../shared/product/ProductShared.css"
+import "./MenuItem.css";
+
 
 export function MenuItem() {
   return (

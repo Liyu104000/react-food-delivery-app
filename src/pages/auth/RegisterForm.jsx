@@ -1,11 +1,16 @@
-import CompanyLogo from "../../../assets/images/companylogo.png";
+import CompanyLogo from "../../assets/images/CompanyLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey, faIdCard } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate} from "react-router-dom";
+import { Link, useNavigate} from "react-router";
+import "../../shared/auth/Auth.css";
 import "./RegisterForm.css";
 
 export function RegisterForm() {
   const navigate = useNavigate();
+
+  const goToSignIn = () => {
+    navigate("/signin")
+  }
 
   return (
     <section className="auth-card">
@@ -68,7 +73,7 @@ export function RegisterForm() {
         </div>
       </form>
 
-      <button className="auth-btn btn-primary" onClick={() => navigate("/signin")} id="register-btn">Register</button>
+      <button className="auth-btn btn-primary" onClick={goToSignIn} id="register-btn">Register</button>
 
       <footer className="auth-footer">
         <p className="auth-link-msg">

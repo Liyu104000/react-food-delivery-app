@@ -1,9 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCircleCheck,
-  faLocationDot,
-} from "@fortawesome/free-solid-svg-icons";
-import Macaroni from "../../../assets/images/macaroni.jpg";
+import {faCircleCheck,faLocationDot} from "@fortawesome/free-solid-svg-icons";
+import Macaroni from "../../assets/images/macaroni.jpg";
 import "./OrderHistory.css";
 
 export function OrderHistory() {
