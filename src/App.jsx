@@ -4,8 +4,8 @@ import { Profile } from "./components/profile/Profile";
 import { Order } from "./components/order/Order";
 import { SignIn } from "./components/auth/SignIn"
 import { Register } from "./components/auth/Register"
-import {Checkout } from "./components/auth/Checkout"
-import {Payment } from "./components/auth/Payment"
+import {Checkout } from "./components/checkout/Checkout"
+import {Payment } from "./components/payment/Payment"
 import './App.css'
 
 function App() {

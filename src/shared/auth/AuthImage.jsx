@@ -1,4 +1,4 @@
-import Macaroni from "../../../assets/images/macaroni.jpg"
+import Macaroni from "../../assets/images/macaroni.jpg"
 import "./AuthImage.css"
 
 export function AuthImage() {

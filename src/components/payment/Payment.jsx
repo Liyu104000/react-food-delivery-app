@@ -1,4 +1,4 @@
-import { Header } from "./layout/header/Header";
+import { Header } from "../layout/header/Header";
 import { PaymentForm } from "../../pages/payment/PaymentForm";
 
 export function Payment() {

@@ -1,4 +1,4 @@
-import { NavBar } from "./layout/nav/Navbar";
+import { NavBar } from "../layout/nav/Navbar";
 import { Sidebar } from "../../pages/home/Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
 import { MenuItem } from "../../pages/home/MenuItem";

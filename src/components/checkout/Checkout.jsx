@@ -1,4 +1,4 @@
-import { Header } from "./layout/header/Header.jsx";
+import { Header } from "../layout/header/Header.jsx";
 import { DeliveryDetails } from "../../pages/checkout/DeliveryDetails";
 import { Recommendation } from "../../pages/checkout/Recommendation";
 import { PaymentDetails } from "../../pages/checkout/PaymentDetails";
