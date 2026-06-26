@@ -1,8 +1,8 @@
 import CompanyLogo from "../../../assets/images/companylogo.png";
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faLessThan} from "@fortawesome/free-solid-svg-icons";
-import "../header/Header.css";
+import "./Header.css";
 
 export function Header(){
   return(

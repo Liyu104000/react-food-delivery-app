@@ -1,5 +1,5 @@
-import { Header } from "../../shared/header/Header";
-import { PaymentForm } from "./PaymentForm";
+import { Header } from "./layout/header/Header";
+import { PaymentForm } from "../../pages/payment/PaymentForm";
 
 export function Payment() {
   return (

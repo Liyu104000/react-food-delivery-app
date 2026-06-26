@@ -1,7 +1,7 @@
 import CompanyLogo from "../../../assets/images/companylogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router';
 import "./NavBar.css";
 
 export function NavBar() {

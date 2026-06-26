@@ -1,4 +1,4 @@
-import { NavBar } from "../../shared/nav/Navbar";
+import { NavBar } from "./layout/nav/Navbar";
 import { OrderHistory } from "../../pages/order/OrderHistory";
 
 

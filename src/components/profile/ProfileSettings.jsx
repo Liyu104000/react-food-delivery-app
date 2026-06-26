@@ -1,7 +1,7 @@
-import { AccountDetails } from "./AccountDetails";
-import { SavedCards } from "./SavedCards";
-import { SavedAddresses } from "./SavedAddresses";
-import { UpdatePassword } from "./UpdatePassword";
+import { AccountDetails } from "../../pages/profile/AccountDetails";
+import { SavedCards } from "../../pages/profile/SavedCards";
+import { SavedAddresses } from "../../pages/profile/SavedAddresses";
+import { UpdatePassword } from "../../pages/profile/UpdatePassword";
 import "./ProfileSettings.css";
 
 export function ProfileSettings() {

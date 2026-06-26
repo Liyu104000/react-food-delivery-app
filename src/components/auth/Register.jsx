@@ -1,4 +1,4 @@
-import { RegisterForm } from "./RegisterForm";
+import { RegisterForm } from "../../pages/auth/RegisterForm";
 import { AuthImage } from "../../shared/auth/AuthImage";
 import '../../shared/auth/Auth.css';
 

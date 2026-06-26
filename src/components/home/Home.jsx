@@ -1,7 +1,7 @@
-import { NavBar } from "../../shared/nav/Navbar";
-import { Sidebar } from "./Sidebar";
+import { NavBar } from "./layout/nav/Navbar";
+import { Sidebar } from "../../pages/home/Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
-import { MenuItem } from "./MenuItem";
+import { MenuItem } from "../../pages/home/MenuItem";
 import "./Home.css";
 
 export function Home() {
