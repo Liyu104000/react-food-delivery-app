@@ -1,4 +1,4 @@
-import { Header } from "./layout/header/Header";
+import { Header } from "../layout/header/Header";
 import { ProductImage } from "../../pages/product/ProductImage";
 import { ProductDetail } from "../../pages/product/ProductDetail";
 import "./Product.css"
