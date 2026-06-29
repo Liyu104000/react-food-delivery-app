@@ -8,7 +8,7 @@ export function AddressSearchBar() {
       <input type="text" placeholder="Enter your delivery address"/>
 
       <FontAwesomeIcon
-      id="search-bar-icon"
+      className="search-bar-icon"
       icon={faLocation}
       />
     </section>

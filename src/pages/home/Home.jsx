@@ -15,12 +15,12 @@ export function Home() {
 
       <main>
         <section>
-          <h1 id="home-heading">Great Food, Delivered by UrbanPlate</h1>
+          <h1 className="home-heading">Great Food, Delivered by UrbanPlate</h1>
 
           <DeliveryInfo />
         </section>
 
-        <section className="home-content-flex">
+        <section className="home-content">
           <Sidebar />
       
           <MenuItem />

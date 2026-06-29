@@ -3,7 +3,7 @@ import "./Sidebar.css";
 export function Sidebar() {
   return (
     <aside className="sidebar">
-      <p id="sidebar-header">Today's Menu</p>
+      <p className="sidebar-header">Today's Menu</p>
       <p className="sidebar-link is-selected">Daily Promotion</p>
       <p className="sidebar-link">Coffee & Tea</p>
       <p className="sidebar-link">Fruit Juice</p>

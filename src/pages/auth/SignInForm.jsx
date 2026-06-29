@@ -44,7 +44,7 @@ export function SignInForm() {
         </div>
       </form>
 
-      <button className="auth-btn btn-primary" id="sign-in-btn" onClick={goToHome}>
+      <button className="btn-auth btn-primary btn-signin" onClick={goToHome}>
         Sign In
       </button>
 

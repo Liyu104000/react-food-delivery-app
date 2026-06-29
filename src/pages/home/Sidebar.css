@@ -10,12 +10,12 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
-#sidebar-header, .sidebar-link{
+.sidebar-header, .sidebar-link{
   padding-left: 15px;
   margin-bottom: 25px;
 }
 
-#sidebar-header{
+.sidebar-header{
   color: rgb(51, 51, 51);
   font-size: 16px;
   font-weight: 600;

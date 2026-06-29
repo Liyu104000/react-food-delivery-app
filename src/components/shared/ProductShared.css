@@ -14,7 +14,7 @@
   font-weight: bold;
 }
 
-.product-price-flex{
+.product-price-container{
   display: flex;
   align-items: baseline;
   gap: 12px;

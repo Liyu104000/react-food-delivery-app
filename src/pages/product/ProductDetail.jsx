@@ -14,7 +14,7 @@ export function ProductDetail() {
       </header>
 
       <section>
-        <div className="product-price-flex">
+        <div className="product-price-container">
           <p className="current-price">19.99</p>
           <p className="discount-price">11.99</p>
 

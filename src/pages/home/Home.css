@@ -1,4 +1,4 @@
-#home-heading{
+.home-heading{
   color: rgb(51, 51, 51);
   font-size: 30px;
   font-weight: bold;
@@ -6,7 +6,7 @@
   padding-top: 130px;
 }
 
-.home-content-flex {
+.home-content{
   display: flex;
   align-items: flex-start; 
 }

@@ -38,7 +38,7 @@ export function PaymentDetails() {
           <div className="product-meta-flex">
             <p id="product-quantity">1x</p>
 
-            <div className="product-price-flex">
+            <div className="product-price-container">
               <p className="current-price">19.99</p>
               <p className="discount-price">11.99</p>
             </div>
