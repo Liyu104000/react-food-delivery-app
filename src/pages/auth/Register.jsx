@@ -1,6 +1,6 @@
-import { RegisterForm } from "../../pages/auth/RegisterForm";
-import { AuthImage } from "../../shared/auth/AuthImage";
-import '../../shared/auth/Auth.css';
+import { RegisterForm } from "./RegisterForm";
+import { AuthImage } from "./AuthImage";
+import './Auth.css';
 
 export function Register() {
   return (

@@ -1,9 +1,6 @@
-.order-heading{
-  color: rgb(51, 51, 51);
-  font-size: 30px;
-  font-weight: bold;
-  padding-top: 100px;
-  padding-left: 330px;
+.order-container{
+  margin-top: 150px;
+ 
 }
 
 .order-card{

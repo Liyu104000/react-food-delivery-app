@@ -2,7 +2,7 @@ import Macaroni from "../../assets/images/macaroni.jpg";
 import AppleJuice from "../../assets/images/apple_juice.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlusCircle } from "@fortawesome/free-solid-svg-icons";
-import "../../shared/product/ProductShared.css";
+import "../../components/shared/ProductShared.css";
 import "./Recommendation.css";
 
 export function Recommendation() {

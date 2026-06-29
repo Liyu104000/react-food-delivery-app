@@ -5,11 +5,7 @@ import "./OrderHistory.css";
 
 export function OrderHistory() {
   return (
-    <section>
-      <header>
-        <h1 id="order-heading">Order History</h1>
-      </header>
-
+    <section className="order-container">
       <article className="order-card">
         <header className="order-card-header-flex">
           <section

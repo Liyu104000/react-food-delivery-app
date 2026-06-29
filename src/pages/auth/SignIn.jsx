@@ -1,6 +1,6 @@
-import { SignInForm } from "../../pages/auth/SignInForm";
-import { AuthImage } from "../../shared/auth/AuthImage";
-import '../../shared/auth/Auth.css';
+import { SignInForm } from "./SignInForm";
+import { AuthImage } from "./AuthImage";
+import './Auth.css';
 
 
 export function SignIn() {

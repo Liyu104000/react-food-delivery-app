@@ -1,7 +1,7 @@
-import { Header } from "../layout/header/Header.jsx";
-import { DeliveryDetails } from "../../pages/checkout/DeliveryDetails";
-import { Recommendation } from "../../pages/checkout/Recommendation";
-import { PaymentDetails } from "../../pages/checkout/PaymentDetails";
+import { Header } from "../../components/layout/header/Header";
+import { DeliveryDetails } from "./DeliveryDetails";
+import { Recommendation } from "./Recommendation";
+import { PaymentDetails } from "./PaymentDetails";
 import "./Checkout.css";
 
 export function Checkout() {

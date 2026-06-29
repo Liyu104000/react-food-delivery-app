@@ -1,6 +1,5 @@
-import { NavBar } from "../layout/nav/Navbar";
-import { OrderHistory } from "../../pages/order/OrderHistory";
-
+import { NavBar } from "../../components/layout/nav/NavBar";
+import { OrderHistory } from "./OrderHistory";
 
 export function Order() {
   return (
@@ -8,7 +7,7 @@ export function Order() {
       <title>My Orders | UrbanPlate</title>
 
       <header>
-        <NavBar />
+        <NavBar/>
       </header>
 
       <main>

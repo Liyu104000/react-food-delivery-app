@@ -1,5 +1,5 @@
-import { NavBar } from "../layout/nav/Navbar";
-import { ProfileSideBar } from "../../pages/profile/ProfileSideBar";
+import { NavBar } from "../../components/layout/nav/Navbar";
+import { ProfileSideBar } from "./ProfileSideBar";
 import { ProfileSettings } from "./ProfileSettings";
 import "./Profile.css";
 

@@ -1,6 +1,6 @@
-import { Header } from "../layout/header/Header";
-import { ProductImage } from "../../pages/product/ProductImage";
-import { ProductDetail } from "../../pages/product/ProductDetail";
+import { Header } from "../../components/layout/header/Header";
+import { ProductImage } from "./ProductImage";
+import { ProductDetail } from "./ProductDetail";
 import "./Product.css"
 export function Product() {
   return (

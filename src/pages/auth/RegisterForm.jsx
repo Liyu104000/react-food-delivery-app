@@ -2,7 +2,7 @@ import CompanyLogo from "../../assets/images/CompanyLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey, faIdCard } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate} from "react-router";
-import "../../shared/auth/Auth.css";
+import "./Auth.css";
 import "./RegisterForm.css";
 
 export function RegisterForm() {

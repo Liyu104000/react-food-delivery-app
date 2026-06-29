@@ -1,6 +1,6 @@
 import Macaroni from "../../assets/images/macaroni.jpg";
 import AppleJuice from "../../assets/images/apple_juice.jpg";
-import "../../shared/product/ProductShared.css";
+import "../../components/shared/ProductShared.css";
 import "./ProductDetail.css";
 
 export function ProductDetail() {

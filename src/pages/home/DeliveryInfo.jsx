@@ -1,5 +1,5 @@
-import { AddressSearchBar } from "../../pages/home/AddressSearchBar";
-import { Dropdown } from "../../pages/home/Dropdown";
+import { AddressSearchBar } from "./AddressSearchBar";
+import { Dropdown } from "./Dropdown";
 
 export function DeliveryInfo() {
   return (
