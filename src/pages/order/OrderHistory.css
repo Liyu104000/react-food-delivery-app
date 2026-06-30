@@ -114,19 +114,8 @@
   margin-left: 20px;
 }
 
-.order-again-btn{
-  background-color: white;
-  color: green;
-  font-size: 14px;
-  border: 1px solid green;
-  border-radius: 6px;
+.btn-order-again{
   margin-right: 20px;
   padding: 4px 20px;
-  cursor: pointer;
 }
 
-.order-again-btn:hover{
-  background-color: green;
-  color: white;
-  border: none;
-}

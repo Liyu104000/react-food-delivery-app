@@ -79,7 +79,7 @@ export function OrderHistory() {
         <footer className="order-card-footer">
           <p className="order-total">Total: RM 15.79</p>
 
-          <button className="order-again-btn">Order Again</button>
+          <button className="btn-outline-success btn-order-again">Order Again</button>
         </footer>
       </article>
 
@@ -153,7 +153,7 @@ export function OrderHistory() {
         <footer className="order-card-footer">
           <p className="order-total">Total: RM 15.79</p>
 
-          <button className="order-again-btn">Order Again</button>
+          <button className="btn-outline-success btn-order-again">Order Again</button>
         </footer>
       </article>
     </section>
