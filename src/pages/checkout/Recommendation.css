@@ -1,27 +1,27 @@
-#rec-card{
+.recommendation-card{
   width: 500px;
   height: 250px;
 }
 
-#rec-heading{
+.recommendation-heading{
   font-size: 16px;
   font-weight: bold;
   padding: 15px 20px 0;
 }
 
 
-.rec-product-grid{
+.recommendation-product-layout{
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
 }
 
 
-.rec-product-card{
+.recommendation-product-card{
   background-color: white;
 }
 
-#rec-img{
+.recommendation-img{
   width: 60px;
   height: 60px;
   border-radius: 12px;
@@ -29,18 +29,18 @@
   margin-left: 16px;
 }
 
-#rec-product-name{
+.product-recommendation-name{
   font-size: 14px;
   margin-bottom: 8px;
 }
 
-.add-product-flex{
+.add-product-row{
   display: flex;
   align-items: center;
   gap: 30px;
 }
 
-#rec-product-price{
+.recommendation-product-price{
   font-size: 12px;
 }
 

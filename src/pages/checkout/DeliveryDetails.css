@@ -1,9 +1,9 @@
-#delivery-details-card{
+.delivery-details-card{
   width: 500px;
   height: 200px;
 }
 
-#delivery-date{
+.delivery-date{
   font-size: 16px;
   font-weight: bold;
   padding: 8px 20px 0;
@@ -19,7 +19,7 @@
   font-size: 12px;
 }
 
-.edit-btn{
+.btn-edit{
   background-color: white;
   color: rgb(0,123,255);
   font-weight: lighter;

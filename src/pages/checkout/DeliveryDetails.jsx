@@ -4,12 +4,12 @@ import "./DeliveryDetails.css";
 
 export function DeliveryDetails() {
   return (
-    <section className="checkout-container" id="delivery-details-card">
-      <h1 id="delivery-date">Delivery On Feb 9</h1>
+    <section className="card-base delivery-details-card">
+      <h1 className="delivery-date">Delivery On Feb 9</h1>
 
       <hr />
 
-      <article className="checkout-flex">
+      <article className="checkout-body-layout">
         <FontAwesomeIcon
           className="checkout-icon"
           icon={faLocationDot}
@@ -23,12 +23,12 @@ export function DeliveryDetails() {
           </address>
         </div>
 
-        <button className="edit-btn">Edit</button>
+        <button className="btn-edit">Edit</button>
       </article>
 
       <hr />
 
-      <article className="checkout-flex">
+      <article className="checkout-body-layout">
         <FontAwesomeIcon className="checkout-icon" icon={faClock} size="lg" />
 
         <div className="delivery-row">
@@ -36,7 +36,7 @@ export function DeliveryDetails() {
           <time className="row-body">2:00PM - 2:30PM</time>
         </div>
 
-        <button className="edit-btn">Edit</button>
+        <button className="btn-edit">Edit</button>
       </article>
     </section>
   );

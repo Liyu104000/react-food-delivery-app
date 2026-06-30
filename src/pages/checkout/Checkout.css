@@ -3,7 +3,7 @@
   display: flex;
   gap: 24px;
   padding-top: 140px;
-  padding-left: 150px;
+  padding-left: 250px;
 }
 
 .left-column{
@@ -14,12 +14,12 @@
 
 /*Shared Component Styles: DeliveryDetails, PaymentDetails, & Recommendation*/
 
-.checkout-container{
+.card-base{
   background-color: white;
   border-radius: 20px;
 }
 
-.checkout-flex{
+.checkout-body-layout{
   display: flex;
   align-items: center;
   gap: 14px;

@@ -1,4 +1,4 @@
-#payment-details-card{
+.payment-details-card{
   width: 450px;
   height: 470px;
 }
@@ -10,25 +10,25 @@
   padding: 15px 20px 0;
 }
 
-#payment-details-heading, #payment-charges-heading{
+.payment-details-heading, .payment-charges-heading{
   font-size: 16px;
   font-weight: bold;
 }
 
-#payment-charges-heading, .payment-charges-grid{
+.payment-charges-heading, .payment-charges{
   padding-left: 20px;
 }
 
-#checkout-total-quantity{
+.checkout-total-quantity{
   font-size: 15px;
   color: rgb(120, 120, 120);
 }
 
-#payment-details-flex{
+.payment-details-layout{
  align-items: start;
 }
 
-#payment-details-img{
+.payment-details-img{
   width: 90px;
   height: 90px;
   border-radius: 12px;
@@ -39,42 +39,42 @@
   margin-top: 14px;
 }
 
-.delete-product-flex{
+.delete-product-row{
   display: flex;
   align-items: center;
   gap: 140px;
 }
 
-#checkout-product-name{
+.product-details-name{
   font-size: 14px;
   margin-bottom: 8px;
 }
 
-.product-meta-flex{
+.product-meta{
   display: flex;
   gap: 40px;
 }
 
-#product-quantity{
+.product-quantity{
   font-size: 14px;
 }
 
-#payment-charges-heading{
+.payment-charges-heading{
   padding-bottom: 6px;
 }
 
-.payment-charges-grid{
+.payment-charges{
   display: grid;
   grid-template-columns: repeat(2,1fr);
   row-gap: 12px;
   font-size: 14px;
 }
 
-#payment-discount{
+.payment-discount{
   color: red;
 }
 
-#payment-total{
+.payment-total{
   font-size: 18px;
   font-weight: 500;
   text-align: right;
@@ -83,7 +83,7 @@
   margin-bottom: 60px;
 }
 
-.payment-btn{
+.btn-payment{
   width: 70%;
   display: block;
   padding: 12px 24px;
