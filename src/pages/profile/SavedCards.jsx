@@ -1,18 +1,25 @@
 import CreditLogo from "../../assets/images/mastercard.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 import "./SavedCards.css";
 
 export function SavedCards() {
+  const navigate = useNavigate();
+
+  const openNewCardForm = () => {
+    navigate("/profile/newcard")
+  }
+
   return (
     <form className="saved-method-form">
       <fieldset className="saved-method-container">
         <section className="saved-card-info">
-          <img src={CreditLogo} alt="creditlogo" id="saved-card-logo" />
+          <img src={CreditLogo} alt="creditlogo" className="saved-card-logo" />
 
           <div>
-            <p id="saved-card-type">Mastercard</p>
-            <p id="saved-card-no">09109020</p>
+            <p className="saved-card-type">Mastercard</p>
+            <p className="saved-card-no">09109020</p>
           </div>
         </section>
 
@@ -25,11 +32,11 @@ export function SavedCards() {
 
       <fieldset className="saved-method-container">
         <section className="saved-card-info">
-          <img src={CreditLogo} alt="creditlogo" id="saved-card-logo" />
+          <img src={CreditLogo} alt="creditlogo" className="saved-card-logo" />
 
           <div>
-            <p id="saved-card-type">Mastercard</p>
-            <p id="saved-card-no">09109020</p>
+            <p className="saved-card-type">Mastercard</p>
+            <p className="saved-card-no">09109020</p>
           </div>
         </section>
 
@@ -41,7 +48,7 @@ export function SavedCards() {
       </fieldset>
 
       <footer className="saved-method-footer">
-        <button className="btn-primary add-new-btn">Add New Card</button>
+        <button className="btn-primary add-new-btn" onClick={openNewCardForm}>New Card</button>
       </footer>
     </form>
   );

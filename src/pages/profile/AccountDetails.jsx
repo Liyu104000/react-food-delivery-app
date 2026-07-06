@@ -3,7 +3,7 @@ import "./AccountDetails.css"
 export function AccountDetails() {
   return (
     <form className="account-management-form">
-      <div className="account-details-flex">
+      <div className="account-details-layout">
         <div className="account-management-group">
           <label htmlFor="first-name" className="account-management-label">First Name:</label>
 
@@ -23,7 +23,7 @@ export function AccountDetails() {
         <input type="text" className="long-input" id="email" />
       </div>
 
-      <div className="account-details-flex">
+      <div className="account-details-layout">
         <div className="account-management-group">
           <label htmlFor="gender" className="account-management-label">Gender:</label>
 
@@ -40,10 +40,10 @@ export function AccountDetails() {
         </div>
       </div>
 
-      <footer className="account-management-actions" id="account-details-buttons">
-        <button className="btn-primary save-changes-btn" id="save-account-details">Save Changes</button>
+      <footer className="account-management-actions account-details-buttons">
+        <button className="btn-success btn-save-changes">Save</button>
 
-        <button className="btn-primary discard-changes-btn" id="discard-account-details">Discard Changes</button>
+        <button className="btn-outline-danger btn-discard-changes">Discard</button>
       </footer>
     </form>
   );

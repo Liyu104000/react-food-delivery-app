@@ -4,6 +4,8 @@ import {Product } from "./pages/product/Product"
 import {Checkout } from "./pages/checkout/Checkout"
 import {Payment } from "./pages/payment/Payment"
 import { Profile } from "./pages/profile/Profile";
+import {NewAddressForm} from "./pages/profile/NewAddressForm"
+import {NewCardForm} from "./pages/profile/NewCardForm"
 import { Order } from "./pages/order/Order";
 import { SignIn } from "./pages/auth/SignIn"
 import { Register } from "./pages/auth/Register"
@@ -41,6 +43,16 @@ function App() {
         <Route 
           path="/profile"
           element={<Profile/>}
+        />
+
+         <Route 
+          path="/profile/newaddress"
+          element={<NewAddressForm/>}
+        />
+
+         <Route 
+          path="/profile/newcard"
+          element={<NewCardForm/>}
         />
 
          <Route 

@@ -1,7 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faAddressBook, faMapPin, faCity} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 
 export function NewAddressForm() {
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate("/profile");
+  }
+
   return (
     <form className="card-form-container">
       <fieldset>
@@ -18,7 +25,7 @@ export function NewAddressForm() {
         </div>
       </fieldset>
 
-      <div className="card-form-flex">
+      <div className="card-form-row">
         <fieldset>
           <label className="card-form-label">Postcode</label>
 
@@ -61,8 +68,8 @@ export function NewAddressForm() {
 
       
       <footer className="card-form-actions">
-        <button className="add-address-btn">Add Address</button>
-        <button className="cancel-btn">Cancel</button>
+        <button className="btn-success add-btn" onClick={goToProfile}>Add Address</button>
+        <button className="btn-danger cancel-btn" onClick={goToProfile}>Cancel</button>
       </footer>
     </form>
   );

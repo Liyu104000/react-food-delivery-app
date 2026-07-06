@@ -1,14 +1,21 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit, faTrashCan, faStar } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 import "./SavedAddresses.css";
 
 export function SavedAddresses() {
+  const navigate = useNavigate();
+
+  const openNewAddressForm = () => {
+    navigate("/profile/newaddress")
+  }
+
   return (
     <form className="saved-method-form">
       <fieldset className="saved-method-container">
         <section className="saved-address-info">
-          <span id="default-badge">Default</span>
-          <p id="saved-address">Bukit Jelutong,40150 Shah Alam</p>
+          <span className="default-badge">Default</span>
+          <p className="saved-address">Bukit Jelutong,40150 Shah Alam</p>
         </section>
 
         <section className="saved-method-actions">
@@ -22,7 +29,7 @@ export function SavedAddresses() {
 
        <fieldset className="saved-method-container">
         <section className="saved-address-info">
-          <p id="saved-address">Bukit Jelutong,40150 Shah Alam</p>
+          <p className="saved-address">Bukit Jelutong,40150 Shah Alam</p>
         </section>
 
         <section className="saved-method-actions">
@@ -35,7 +42,7 @@ export function SavedAddresses() {
       </fieldset>
 
       <footer className="saved-method-footer">
-        <button className="btn-primary add-new-btn">Add New Address</button>
+        <button className="btn-primary add-new-btn" onClick={openNewAddressForm}>New Address</button>
       </footer>
     </form>
   );

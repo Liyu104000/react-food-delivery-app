@@ -3,13 +3,13 @@
   margin-top: 40px;
 }
 
-#sel-delivery-time{
+.delivery-time{
   font-size: 14px;
   font-weight: bold;
   margin-bottom: 16px;
 }
 
-#product-sel-name{
+.product-sel-name{
   color: black;
   font-size: 30px;
   font-weight: bold;
@@ -22,20 +22,14 @@
   margin-bottom: 16px;
 }
 
-.update-btn{
+.btn-update-cart{
   width: 20%;
   margin-bottom: 40px;
   padding-top: 8px;
   padding-bottom: 8px;
 }
 
-.update-btn.disable{
-  background-color: rgb(210, 140, 110);
-  color: rgb(245, 245, 245);
-  cursor: not-allowed;
-}
-
-#product-desc{
+.product-desc{
   font-size: 18px;
   max-width: 60ch;
 }

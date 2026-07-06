@@ -2,7 +2,7 @@
  position: relative;
 }
 
-#default-badge {
+.default-badge {
   background-color: rgb(190, 24, 74);
   color: rgb(253, 242, 248);
   font-size: 12px;
@@ -15,7 +15,7 @@
   top: -20px;
 }
 
-#saved-address {
+.saved-address {
   font-size: 14px;
   margin-left: 10px;
   margin-top: 6px;

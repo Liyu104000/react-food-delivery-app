@@ -7,10 +7,10 @@ export function ProductDetail() {
   return (
     <article className="product-detail-container">
       <header>
-        <h1 id="sel-delivery-time">
+        <h1 className="delivery-time">
           Today . 2:00PM - 2:30PM
         </h1>
-        <p className="product-name" id="product-sel-name">Spaghetti Bolognese</p>
+        <p className="product-name product-sel-name">Spaghetti Bolognese</p>
       </header>
 
       <section>
@@ -31,13 +31,13 @@ export function ProductDetail() {
       </section>
 
       <section>
-        <button className="update-btn btn-primary">
+        <button className="btn-primary btn-update-cart">
           Update Cart
         </button>
       </section>
 
       <section>
-        <p id="product-desc">
+        <p className="product-desc">
           Classic Italian spaghetti served with a rich, slow-simmered beef
           Bolognese sauce crafted from ripe tomatoes, aromatic herbs, and savory
           spices. Each strand of pasta is perfectly coated in the hearty sauce,

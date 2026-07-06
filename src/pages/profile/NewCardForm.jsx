@@ -1,7 +1,14 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCalendar,faCreditCard,faLock,faUser} from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router";
 
 export function NewCardForm() {
+  const navigate = useNavigate();
+
+  const goToProfile = () => {
+    navigate("/profile");
+  }
+
   return (
     <form className="card-form-container">
       <fieldset>
@@ -74,8 +81,8 @@ export function NewCardForm() {
       </fieldset>
 
       <footer className="card-form-actions">
-        <button className="add-card-btn">Add Card</button>
-        <button className="cancel-btn">Cancel</button>
+        <button className="btn-success add-btn" onClick={goToProfile}>Add Card</button>
+        <button className="btn-danger cancel-btn" onClick={goToProfile}>Cancel</button>
       </footer>
     </form>
   );

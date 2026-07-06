@@ -7,11 +7,15 @@ import "./PaymentForm.css";
 export function PaymentForm() {
   const navigate= useNavigate();
 
+  const goToMyOrders = () => {
+    navigate("/myorders")
+  }
+
   return (
     <section className="payment-form-container">
       <header className="payment-header">
-        <h1 id="payment-heading">Select Payment Method</h1>
-        <h2 id="payment-sub-heading">Choose how you'd like to pay</h2>
+        <h1 className="payment-heading">Select Payment Method</h1>
+        <h2 className="payment-sub-heading">Choose how you'd like to pay</h2>
       </header>
 
       <form>
@@ -46,7 +50,7 @@ export function PaymentForm() {
         </fieldset>
       </form>
 
-      <button className="order-btn btn-primary" onClick={() => navigate("/myorders")}>Place Order</button>
+      <button className="btn-primary btn-place-order" onClick={goToMyOrders}>Place Order</button>
     </section>
   );
 }
