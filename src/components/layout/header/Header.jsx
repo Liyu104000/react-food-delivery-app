@@ -9,19 +9,19 @@ export function Header(){
    <section className="utility-header">
     <section className="home-link-container">
       <FontAwesomeIcon
-        id="utility-icon"
+        className="utility-icon"
         icon={faLessThan}
         color="black"
         size="lg"
       />
 
-      <Link to="/" id="home-link">
+      <Link to="/" className="home-link">
         Back To Home
       </Link>
     </section>
 
     <section>
-      <img src={CompanyLogo} alt="urbanplate-logo" className="company-logo" id="utility-logo"/>
+      <img src={CompanyLogo} alt="urbanplate-logo" className="company-logo utility-logo"/>
     </section>
   </section>
   )

@@ -22,24 +22,24 @@
   width: 165px;
 }
 
-#utility-icon{
+.utility-icon{
   margin-left: 24px;
   margin-right: 14px;
 }
 
-#home-link{
+.home-link{
   color: black;
   text-decoration: none;
   font-size: 14px;
   font-weight: bold;
 }
 
-#home-link:visited{
+.home-link:visited{
   color: black;
   font-weight: bold;
 }
 
 
-#utility-logo{
+.utility-logo{
   width: 150px;
 }

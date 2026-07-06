@@ -6,6 +6,10 @@ import "./NavBar.css";
 
 export function NavBar() {
   const navigate = useNavigate();
+
+  const goToCheckout = () => {
+    navigate('/checkout');
+  }
   
   return (
     <section className="nav-header">
@@ -14,7 +18,7 @@ export function NavBar() {
           src={CompanyLogo}
           alt="urbanplate-logo"
           className="company-logo"
-          id="nav-logo"
+          className="nav-logo"
         />
       </section>
 
@@ -41,10 +45,10 @@ export function NavBar() {
           icon={faShoppingCart}
           color="black"
           size="xl"
-          onClick={() => navigate('/checkout')}
+          onClick={goToCheckout}
         />
 
-        <span id="cart-quantity">1</span>
+        <span className="cart-quantity">1</span>
       </section>
     </section>
   );
