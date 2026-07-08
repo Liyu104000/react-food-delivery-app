@@ -1,6 +1,6 @@
 import CompanyLogo from "../../assets/images/CompanyLogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faKey, faIdCard } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faKey, faIdCard, faContactBook } from "@fortawesome/free-solid-svg-icons";
 import { Link, useNavigate} from "react-router";
 import "./Auth.css";
 import "./RegisterForm.css";
@@ -48,6 +48,16 @@ export function RegisterForm() {
           <FontAwesomeIcon
             className="auth-icon"
             icon={faEnvelope}
+            color="rgb(90,90,90)"
+          />
+        </div>
+
+         <div className="auth-input">
+          <input type="tel" placeholder="Phone No" />
+
+          <FontAwesomeIcon
+            className="auth-icon"
+            icon={faContactBook}
             color="rgb(90,90,90)"
           />
         </div>

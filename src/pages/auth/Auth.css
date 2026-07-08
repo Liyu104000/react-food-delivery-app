@@ -1,7 +1,7 @@
 .auth-container{
   background-color: white;
   width: 55vw;
-  height: 100vh;
+  height: 105vh;
   margin: 55px auto 0 auto;
   border-radius: 20px;
   display: flex;
@@ -25,12 +25,24 @@
   font-size: 16px;
   font-weight: normal;
   padding-left: 65px;
-  margin-bottom: 32px;
+  margin-bottom: 30px;
+}
+
+.auth-error-msg{
+  background-color: rgb(255, 241, 241);
+  color: rgb(186, 26, 26);
+  font-size: 14px;
+  font-weight: 600;
+  border: 2px solid rgb(243, 178, 178);
+  padding: 8px 15px;         
+  margin-left: 55px;       
+  margin-bottom: 16px;     
 }
 
 .auth-form{
   display: flex;
   flex-direction: column;
+  margin-top: 30px;
   margin-bottom: 14px;
 }
 
@@ -63,7 +75,7 @@
 
 .auth-icon{
   position: absolute;
-  right: 65px;
+  right: 45px;
   bottom: 28px;
 }
 
