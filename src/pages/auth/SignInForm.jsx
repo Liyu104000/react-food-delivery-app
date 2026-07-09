@@ -14,18 +14,15 @@ export function SignInForm() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
-  const [isSignIn, setIsSignIn] = useState(false);
-
+ 
   const authUser = async () => {
     setErrorMsg("");
 
     try {
       if(!email.trim() || !password.trim()){
-        throw new Error("Email or Password must be provided!");
+        throw new Error("All fields must be provided!");
       }else if(!email.includes("@")){
         throw new Error("Email must include @!");
-      }else if(password.length < 8){
-        throw new Error("Password must have 8+ characters");
       }
 
       const response = await axios.get(
@@ -41,10 +38,8 @@ export function SignInForm() {
       );
 
       if (!foundUser) {
-        throw new Error("Incorrect email or password!");
+        throw new Error("Incorrect Email or Password!");
       }
-
-      setIsSignIn(true);
       goToHome();
     } catch (error) {
       setErrorMsg(error.message);
@@ -52,9 +47,6 @@ export function SignInForm() {
       setTimeout(() => {
         setErrorMsg("");
       }, 2000);
-
-      setEmail("");
-      setPassword("");
    }
   };
 
