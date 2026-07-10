@@ -6,83 +6,13 @@ import {
   faIdCard,
   faContactBook,
 } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router";
-import { useState } from "react";
-import axios from "axios";
+import { Link} from "react-router";
 import "./Auth.css";
 import "./RegisterForm.css";
 
-export function RegisterForm() {
-  const navigate = useNavigate();
-
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [phoneNo, setPhoneNo] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
-
-  const registerUser = async () => {
-    setErrorMsg("");
-
-    try {
-      if (
-        !firstName.trim() ||
-        !lastName.trim() ||
-        !email.trim() ||
-        !phoneNo.trim() ||
-        !password.trim()
-      ) {
-        throw new Error("All fields must be provided!");
-      } else if (password !== confirmPassword) {
-        throw new Error("Both Password fields must match!");
-      } else if(!email.includes("@")){
-        throw new Error("Email must include @!");
-      }
-
-
-      const checkEmailExist = await axios.get(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
-      );
-
-      const users = checkEmailExist.data;
-
-      const emailExist = users.some(
-        (user) => user.email.toLowerCase() === email.toLowerCase(),
-      );
-
-      if (emailExist) {
-        throw new Error("Email has already been taken!");
-      }
-
-      const response = await axios.post(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
-        {
-          firstName: firstName.trim(),
-          lastName: lastName.trim(),
-          email: email.trim(),
-          phoneNo: phoneNo.trim(),
-          password: password,
-        },
-      );
-
-      if (response.status === 201) {
-        goToSignIn();
-      }
-    } catch (error) {
-      setErrorMsg(error.message);
-
-      setTimeout(() => {
-        setErrorMsg("");
-      }, 2000);
-    }
-  };
-
-  const goToSignIn = () => {
-    navigate("/signin");
-  };
-
+export function RegisterForm({
+  registerValues, registerSetters, errorMsg, registerUser
+}) {
   return (
     <section className="auth-card">
       <img src={CompanyLogo} alt="urbanplate-logo" className="company-logo" />
@@ -105,9 +35,9 @@ export function RegisterForm() {
           <input
             type="text"
             placeholder="First Name"
-            value={firstName}
+            value={registerValues.firstName}
             onChange={(e) => {
-              setFirstName(e.target.value);
+              registerSetters.setFirstName(e.target.value);
             }}
             required
             maxLength={25}
@@ -124,9 +54,9 @@ export function RegisterForm() {
           <input
             type="text"
             placeholder="Last Name"
-            value={lastName}
+            value={registerValues.lastName}
             onChange={(e) => {
-              setLastName(e.target.value);
+              registerSetters.setLastName(e.target.value);
             }}
             required
             maxLength={35}
@@ -143,9 +73,9 @@ export function RegisterForm() {
           <input
             type="email"
             placeholder="Email"
-            value={email}
+            value={registerValues.email}
             onChange={(e) => {
-              setEmail(e.target.value);
+              registerSetters.setEmail(e.target.value);
             }}
             required
             maxLength={35}
@@ -162,9 +92,9 @@ export function RegisterForm() {
           <input
             type="tel"
             placeholder="Phone No"
-            value={phoneNo}
+            value={registerValues.phoneNo}
             onChange={(e) => {
-              setPhoneNo(e.target.value);
+              registerSetters.setPhoneNo(e.target.value);
             }}
             required
             maxLength={15}
@@ -181,9 +111,9 @@ export function RegisterForm() {
           <input
             type="password"
             placeholder="Password"
-            value={password}
+            value={registerValues.password}
             onChange={(e) => {
-              setPassword(e.target.value);
+              registerSetters.setPassword(e.target.value);
             }}
             required
             maxLength={20}
@@ -200,12 +130,12 @@ export function RegisterForm() {
           <input
             type="password"
             placeholder="Confirm Password"
-            value={confirmPassword}
+            value={registerValues.confirmPassword}
             onChange={(e) => {
-              setConfirmPassword(e.target.value);
+              registerSetters.setConfirmPassword(e.target.value);
             }}
             required
-            maxLength={25}
+            maxLength={20}
           />
 
           <FontAwesomeIcon

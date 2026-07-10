@@ -1,59 +1,13 @@
 import CompanyLogo from "../../assets/images/companylogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faKey } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from "react-router";
-import { useState } from "react";
-import axios from "axios";
+import { Link} from "react-router";
 
 import "./Auth.css";
 import "./SignInForm.css";
 
-export function SignInForm() {
-  const navigate = useNavigate();
-
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMsg, setErrorMsg] = useState("");
+export function SignInForm({email, setEmail, password, setPassword, errorMsg, authUser}) {
  
-  const authUser = async () => {
-    setErrorMsg("");
-
-    try {
-      if(!email.trim() || !password.trim()){
-        throw new Error("All fields must be provided!");
-      }else if(!email.includes("@")){
-        throw new Error("Email must include @!");
-      }
-
-      const response = await axios.get(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
-      );
-
-      const users = response.data;
-
-      const foundUser = users.find(
-        (user) =>
-          user.email.toLowerCase() === email.toLowerCase() &&
-          user.password === password,
-      );
-
-      if (!foundUser) {
-        throw new Error("Incorrect Email or Password!");
-      }
-      goToHome();
-    } catch (error) {
-      setErrorMsg(error.message);
-
-      setTimeout(() => {
-        setErrorMsg("");
-      }, 2000);
-   }
-  };
-
-  const goToHome = () => {
-    navigate("/");
-  };
-
   return (
     <section className="auth-card">
       <img src={CompanyLogo} alt="urbanplate-logo" className="company-logo" />
