@@ -35,7 +35,7 @@
 }
 
 
-.nav-item.is-selected{
+.nav-item.active{
   font-weight: bold;
   text-decoration: underline;
 }

@@ -22,7 +22,7 @@ export function SignInForm({email, setEmail, password, setPassword, errorMsg, au
         className="auth-form"
         onSubmit={(e) => {
           e.preventDefault();
-          authUser();
+          authUser(e);
         }}
         noValidate
       >

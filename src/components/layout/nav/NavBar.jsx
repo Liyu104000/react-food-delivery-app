@@ -1,43 +1,58 @@
 import CompanyLogo from "../../../assets/images/companylogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { Link, useNavigate } from 'react-router';
+import { NavLink, Link, useNavigate } from "react-router";
 import "./NavBar.css";
 
-export function NavBar() {
+export function NavBar({ isSignIn, setIsSignIn }) {
   const navigate = useNavigate();
 
+  const hasActiveSession = sessionStorage.getItem("isUserSignedIn") === "true";
+
+  const userIsAuthenticated = isSignIn || hasActiveSession;
+
   const goToCheckout = () => {
-    navigate('/checkout');
+    navigate("/checkout");
+  };
+
+  const handleSignOut = () => {
+    sessionStorage.removeItem("isUserSignedIn");
+    setIsSignIn(false);
   }
-  
+
   return (
     <section className="nav-header">
       <section>
         <img
           src={CompanyLogo}
           alt="urbanplate-logo"
-          className="company-logo"
-          className="nav-logo"
+          className="company-logo nav-logo"
         />
       </section>
 
       <nav className="navbar">
-        <Link to="/" className="nav-item is-selected">
+        <NavLink to="/" className="nav-item">
           Home
-        </Link>
+        </NavLink>
 
-        <Link to="/profile" className="nav-item">
-          Profile
-        </Link>
-
-        <Link to="/myorders" className="nav-item">
+        
+        <NavLink to="/myorders" className="nav-item">
           My Orders
-        </Link>
+        </NavLink>
 
-        <Link to="/signin"  className="nav-item">
-          Sign In
-        </Link>
+        {userIsAuthenticated && (
+          <NavLink to="/profile" className="nav-item">
+           Profile
+          </NavLink>
+        )}
+
+
+        
+        {userIsAuthenticated ? (
+        <Link to="/" className="nav-item" onClick={handleSignOut}>Sign Out</Link>
+        ):(
+        <Link to="/signin" className="nav-item">Sign In</Link>
+        )}
       </nav>
 
       <section className="cart-container">
@@ -48,7 +63,8 @@ export function NavBar() {
           onClick={goToCheckout}
         />
 
-        <span className="cart-quantity">1</span>
+        {userIsAuthenticated && <span className="cart-quantity">1</span>}
+      
       </section>
     </section>
   );

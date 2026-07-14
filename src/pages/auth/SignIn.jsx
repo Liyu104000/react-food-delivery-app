@@ -3,22 +3,26 @@ import { AuthImage } from "./AuthImage";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import axios from "axios";
-import './Auth.css';
+import "./Auth.css";
 
-export function SignIn() {
-   const navigate = useNavigate();
+export function SignIn({ setIsSignIn }) {
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
- 
-  const authUser = async () => {
+
+  const authUser = async (e) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
+
     setErrorMsg("");
 
     try {
-      if(!email.trim() || !password.trim()){
+      if (!email.trim() || !password.trim()) {
         throw new Error("All fields must be provided!");
-      }else if(!email.includes("@")){
+      } else if (!email.includes("@")) {
         throw new Error("Email must include @!");
       }
 
@@ -34,23 +38,26 @@ export function SignIn() {
           user.password === password,
       );
 
-      if (!foundUser) {
+      if (foundUser) {
+        sessionStorage.setItem("isUserSignedIn", "true");
+
+        setIsSignIn(true);
+        goToHome();
+      } else {
         throw new Error("Incorrect Email or Password!");
       }
-      goToHome();
     } catch (error) {
       setErrorMsg(error.message);
 
       setTimeout(() => {
         setErrorMsg("");
       }, 2000);
-   }
+    }
   };
 
   const goToHome = () => {
     navigate("/");
   };
-
 
   return (
     <>
@@ -58,16 +65,16 @@ export function SignIn() {
 
       <main className="auth-container">
         <SignInForm
-         email={email}
-         setEmail={setEmail}
-         password={password}
-         setPassword={setPassword}
-         errorMsg={errorMsg}
-         authUser={authUser}
+          email={email}
+          setEmail={setEmail}
+          password={password}
+          setPassword={setPassword}
+          errorMsg={errorMsg}
+          authUser={authUser}
         />
 
-        <AuthImage/>
+        <AuthImage />
       </main>
     </>
-  )
+  );
 }
