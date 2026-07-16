@@ -17,16 +17,20 @@
 .product-price-container{
   display: flex;
   align-items: baseline;
-  gap: 12px;
+  gap: 16px;
   margin-bottom: 16px;
 }
 
-.current-price, .discount-price{
+.current-price, .current-price-cross, .discount-price{
   font-size: 14px;
 }
 
-.current-price{
+.current-price-cross{
   text-decoration: line-through;
+}
+
+.current-price{
+  text-decoration: none;
 }
 
 .discount-price{

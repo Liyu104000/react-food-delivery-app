@@ -1,7 +1,7 @@
 .category-container{
   position: relative;
-  left: 100px;
-  top: 40px;
+  left: 180px;
+  top: 30px;
   width: 60%;
 }
 
@@ -15,7 +15,7 @@
 
 .product-grid{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 50px;
 }
 
@@ -26,6 +26,10 @@
   height: 320px;
   overflow: hidden;
   position: relative;
+}
+
+.product-body{
+  margin-left: 10px;
 }
 
 .menu-item-name, .menu-item-price{

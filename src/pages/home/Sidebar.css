@@ -1,18 +1,17 @@
 
 .sidebar{
   background-color: rgb(255, 252, 248);
-  height: 420px;
+  height: 440px;
   width: 155px;
   position:relative;
-  top: 30px;
-  left: 15px;
+  top: 90px;
+  left: 60px;
   border-radius: 15px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .sidebar-header, .sidebar-link{
   padding-left: 15px;
-  margin-bottom: 25px;
 }
 
 .sidebar-header{
@@ -20,11 +19,13 @@
   font-size: 16px;
   font-weight: 600;
   padding-top: 20px;
+  margin-bottom: 25px;
 }
 
 .sidebar-link{
   color: rgb(34, 34, 34);
   font-size: 14px;
+  margin-bottom: 40px;
   cursor: pointer;
 }
 

@@ -1,64 +1,51 @@
-import Macaroni from "../../assets/images/macaroni.jpg";
-import AppleJuice from "../../assets/images/apple_juice.jpg";
-import "../../components/shared/ProductShared.css"
+import { formatCurrency } from "../../utils/money";
+import "../../components/shared/ProductShared.css";
 import "./MenuItem.css";
 
-
-export function MenuItem() {
+export function MenuItem({ categoryHeading, products }) {
   return (
     <section className="category-container">
-      <h2 className="category-heading">Daily Promotion</h2>
+      <h2 className="category-heading">{categoryHeading}</h2>
 
       <section className="product-grid">
-        <article className="product-card">
-          <img src={Macaroni} alt="macaroni&cheese" className="product-img" />
+        {products.map((product) => (
+          <article key={product.id} className="product-card">
+            <img
+              src={product.image}
+              alt={product.name}
+              className="product-img"
+            />
 
-          <section>
-            <p className="product-name menu-item-name" >Spaghetti Bolognese</p>
+            <section className="product-body">
+              <p className="product-name menu-item-name">{product.name}</p>
 
-            <div className="product-price-container menu-item-price">
-              <p className="current-price">19.99</p>
-              <p className="discount-price">11.99</p>
-            </div>
+              <div className="product-price-container menu-item-price">
+                {product.discountPriceCents ? (
+                  <>
+                    <p className="current-price-cross">{formatCurrency(product.priceCents)}</p>
+                    <p className="discount-price">{formatCurrency(product.discountPriceCents)}</p>
+                  </>
+                ) : (
+                  <p className="current-price">{formatCurrency(product.priceCents)}</p>
+                )}
+              </div>
 
-            <div className="quantity-container">
-              <select className="quantity-selec">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </section>
+              <div className="quantity-container">
+                <select className="quantity-selec">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                </select>
+              </div>
+            </section>
 
-          <button className="product-btn btn-primary add-cart-btn">Add To Cart</button>
-        </article>
-
-        <article className="product-card">
-          <img src={Macaroni} alt="macaroni&cheese" className="product-img" />
-
-          <section>
-            <p className="product-name menu-item-name" >Spaghetti Bolognese</p>
-
-            <div className="product-price-container menu-item-price">
-              <p className="current-price">19.99</p>
-              <p className="discount-price">11.99</p>
-            </div>
-
-            <div className="quantity-container">
-              <select className="quantity-selec">
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-              </select>
-            </div>
-          </section>
-
-          <button className="product-btn btn-primary add-cart-btn">Add To Cart</button>
-        </article>
+            <button className="product-btn btn-primary add-cart-btn">
+              Add To Cart
+            </button>
+          </article>
+        ))}
       </section>
     </section>
   );
