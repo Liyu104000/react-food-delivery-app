@@ -1,5 +1,3 @@
-![React](https://shields.io)
-
 Project Status: In Progress
 
 ### Project Description
