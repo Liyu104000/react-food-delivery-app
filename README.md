@@ -8,17 +8,17 @@ Currently, the project features a separated component architecture, with a worki
 
 ### Current Features
 
---Custom front-end pages made purely using CSS and React
---Fully functional Sign In and Register pages with user data validation, duplicate checking, and account registration
---Integrated Sign In and Register with a remote REST server using mockAPI to simulate backend user databases
---Utilized React Router to switch between different pages seamlessly
+- Custom front-end pages made purely using CSS and React
+- Fully functional Sign In and Register pages with user data validation, duplicate checking, and account registration
+- Integrated Sign In and Register with a remote REST server using mockAPI to simulate backend user databases
+- Utilized React Router to switch between different pages seamlessly
 
 ### Upcoming Features
 
---Integrate the remaining pages with mockAPI to replace all placeholder dummy data with dynamic restaurant meals
---Build out interactive functionality for the remaining front-end pages of the application
---Add account management functionality so users can view and edit their profile details
---Build an order history system where users can review past orders and re-add those exact meals back into the cart if needed
+- Integrate the remaining pages with mockAPI to replace all placeholder dummy data with dynamic restaurant meals
+- Build out interactive functionality for the remaining front-end pages of the application
+- Add account management functionality so users can view and edit their profile details
+- Build an order history system where users can review past orders and re-add those exact meals back into the cart if needed
 
 ### Technologies Used
 
