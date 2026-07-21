@@ -26,7 +26,8 @@
 .delivery-scedule-dialog{
   background-color: rgb(250, 250, 250);
   width: 250px;
-  height: 400px;
+  height: auto;
+  padding-bottom: 20px;
   border-radius: 15px;
   position: absolute;
   top: 50px;
@@ -81,6 +82,16 @@
 
 .time-options{
   margin-left: 30px;
+}
+
+.closed-msg{
+  color: #718096; 
+  background-color: #f7fafc; 
+  font-size: 14px;
+  line-height: 1.5;
+  padding: 8px;
+  margin: 12px 0 24px 0;
+  text-align: left;
 }
 
 .btn-delivery-time{
