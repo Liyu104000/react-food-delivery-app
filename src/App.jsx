@@ -32,7 +32,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
 
-        <Route path="/product" element={<Product />} />
+        <Route path="/product/:id" element={<Product />} />
 
         <Route path="/payment" element={<Payment />} />
 
@@ -40,7 +40,9 @@ function App() {
 
         <Route path="/payment" element={<Payment />} />
 
-        <Route path="/profile" element={<Profile />} />
+        <Route path="/profile" element={<Profile 
+          setIsSignIn={setIsSignIn}
+        />} />
 
         <Route path="/profile/newaddress" element={<NewAddressForm />} />
 

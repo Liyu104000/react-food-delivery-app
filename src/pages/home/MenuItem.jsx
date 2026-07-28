@@ -1,4 +1,5 @@
 import { formatCurrency } from "../../utils/money";
+import { Link } from "react-router";
 import "../../components/shared/ProductShared.css";
 import "./MenuItem.css";
 
@@ -17,8 +18,9 @@ export function MenuItem({ categoryHeading, products }) {
             />
 
             <section className="product-body">
-              <p className="product-name menu-item-name">{product.name}</p>
-
+              <Link to={`/product/${product.id}`} className="product-link-container">
+               <p className="product-name menu-item-name">{product.name}</p>
+              </Link>
               <div className="product-price-container menu-item-price">
                 {product.discountPriceCents ? (
                   <>

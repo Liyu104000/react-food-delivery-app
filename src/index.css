@@ -91,3 +91,29 @@ fieldset{
   width: 155px;
   margin-top: 10px;
 }
+
+/*Sweet Alert 2 Styles*/
+
+.swal2-icon {
+  margin: 10px auto !important; 
+  width: 3.5rem;
+  height: 3.5rem;
+}
+
+.swal2-title {
+  margin-bottom: 6px !important; 
+}
+
+.swal2-html-container {
+  margin-bottom: 10px !important; 
+}
+
+.swal2-confirm, 
+.swal2-cancel {
+  display: inline-flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-width: 100px !important; 
+  text-align: center !important;
+  padding: 10px 0 !important;  
+}

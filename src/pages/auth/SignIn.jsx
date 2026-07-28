@@ -12,6 +12,8 @@ export function SignIn({ setIsSignIn }) {
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
+
   const authUser = async (e) => {
     if (e && e.preventDefault) {
       e.preventDefault();
@@ -26,19 +28,32 @@ export function SignIn({ setIsSignIn }) {
         throw new Error("Email must include @!");
       }
 
+      const formattedEmail = email.trim().toLowerCase();
+
       const response = await axios.get(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
+        `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/users?email=eq.${formattedEmail}&password=eq.${password}`,
+        {
+          headers: {
+            apikey: supaBaseKey,
+          },
+        },
       );
 
-      const users = response.data;
+      const usersFoundList = response.data;
 
-      const foundUser = users.find(
-        (user) =>
-          user.email.toLowerCase() === email.toLowerCase() &&
-          user.password === password,
-      );
+      if (usersFoundList && usersFoundList.length > 0) {
+        const foundUser = usersFoundList[0];
 
-      if (foundUser) {
+        const userData = {
+          id: foundUser.id,
+          firstName: foundUser.first_name,
+          lastName: foundUser.last_name,
+          email: foundUser.email,
+          phoneNo: foundUser.phone_no,
+          password: foundUser.password,
+        };
+
+        sessionStorage.setItem("activeUser", JSON.stringify(userData));
         sessionStorage.setItem("isUserSignedIn", "true");
 
         setIsSignIn(true);

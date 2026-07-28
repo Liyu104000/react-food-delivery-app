@@ -33,6 +33,11 @@
   margin-left: 10px;
 }
 
+.product-link-container{
+  text-decoration: none;
+  color: inherit;
+}
+
 .menu-item-name, .menu-item-price{
   padding-left: 6px;
 }

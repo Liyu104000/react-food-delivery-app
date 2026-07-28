@@ -3,7 +3,7 @@ import { AuthImage } from "./AuthImage";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
-import './Auth.css';
+import "./Auth.css";
 
 export function Register() {
   const navigate = useNavigate();
@@ -15,6 +15,8 @@ export function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
+
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
   const registerUser = async () => {
     setErrorMsg("");
@@ -29,42 +31,36 @@ export function Register() {
       ) {
         throw new Error("All fields must be provided!");
       } else if (password !== confirmPassword) {
-        throw new Error("Both Password fields must match!");
-      } else if(!email.includes("@")){
+        throw new Error("Password Confirmation does not match");
+      } else if (!email.includes("@")) {
         throw new Error("Email must include @!");
       }
 
+      const registerUserData = {
+        first_name: firstName.trim(),
+        last_name: lastName.trim(),
+        email: email.trim().toLowerCase(),
+        phone_no: phoneNo.trim(),
+        password: password,
+      };
 
-      const checkEmailExist = await axios.get(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
-      );
-
-      const users = checkEmailExist.data;
-
-      const emailExist = users.some(
-        (user) => user.email.toLowerCase() === email.toLowerCase(),
-      );
-
-      if (emailExist) {
-        throw new Error("Email has already been taken!");
-      }
-
-      const response = await axios.post(
-        "https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users",
+      await axios.post(
+        "https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/users",
+        registerUserData,
         {
-          firstName: firstName.trim(),
-          lastName: lastName.trim(),
-          email: email.trim(),
-          phoneNo: phoneNo.trim(),
-          password: password,
+          headers: {
+            apikey: supaBaseKey,
+            "Content-Type": "application/json",
+          },
         },
       );
-
-      if (response.status === 201) {
-        goToSignIn();
-      }
+      goToSignIn();
     } catch (error) {
-      setErrorMsg(error.message);
+      if (error.response && error.response.status === 409) {
+        setErrorMsg("An Account With This Email Address Already Exist!");
+      } else {
+        setErrorMsg(error.message);
+      }
 
       setTimeout(() => {
         setErrorMsg("");
@@ -76,23 +72,37 @@ export function Register() {
     navigate("/signin");
   };
 
- const registerValues = {firstName,lastName,email,phoneNo,password,confirmPassword}
+  const registerValues = {
+    firstName,
+    lastName,
+    email,
+    phoneNo,
+    password,
+    confirmPassword,
+  };
 
- const registerSetters = {setFirstName, setLastName, setEmail, setPhoneNo, setPassword, setConfirmPassword}
+  const registerSetters = {
+    setFirstName,
+    setLastName,
+    setEmail,
+    setPhoneNo,
+    setPassword,
+    setConfirmPassword,
+  };
   return (
     <>
       <title>Register | UrbanPlate</title>
 
       <main className="auth-container">
-        <RegisterForm 
-         registerValues= {registerValues}
-         registerSetters= {registerSetters}
-         errorMsg={errorMsg}
-         registerUser= {registerUser}
+        <RegisterForm
+          registerValues={registerValues}
+          registerSetters={registerSetters}
+          errorMsg={errorMsg}
+          registerUser={registerUser}
         />
-        
-        <AuthImage/>
+
+        <AuthImage />
       </main>
     </>
-  )
+  );
 }

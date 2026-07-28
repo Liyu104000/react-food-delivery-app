@@ -2,6 +2,7 @@ import CompanyLogo from "../../../assets/images/companylogo.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { NavLink, Link, useNavigate } from "react-router";
+import Swal from "sweetalert2";
 import "./NavBar.css";
 
 export function NavBar({ isSignIn, setIsSignIn }) {
@@ -15,10 +16,30 @@ export function NavBar({ isSignIn, setIsSignIn }) {
     navigate("/checkout");
   };
 
-  const handleSignOut = () => {
-    sessionStorage.removeItem("isUserSignedIn");
-    setIsSignIn(false);
-  }
+  const handleSignOut = (e) => {
+    e.preventDefault();
+
+    Swal.fire({
+      title: "Sign Out",
+      text: "Do You Want To Sign Out?",
+      icon: "question",
+      iconColor: "rgb(108, 117, 125)",
+      confirmButtonText: "Sign Out",
+      confirmButtonColor: "rgb(232,93,4);",
+      showCancelButton: true,
+      cancelButtonText: "Cancel",
+      cancelButtonColor: "rgb(108, 117, 125)",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        sessionStorage.removeItem("activeUser");
+        sessionStorage.removeItem("isUserSignedIn");
+
+        setIsSignIn(false);
+
+        navigate("/");
+      }
+    });
+  };
 
   return (
     <section className="nav-header">
@@ -35,23 +56,24 @@ export function NavBar({ isSignIn, setIsSignIn }) {
           Home
         </NavLink>
 
-        
         <NavLink to="/myorders" className="nav-item">
           My Orders
         </NavLink>
 
         {userIsAuthenticated && (
           <NavLink to="/profile" className="nav-item">
-           Profile
+            Profile
           </NavLink>
         )}
 
-
-        
         {userIsAuthenticated ? (
-        <Link to="/" className="nav-item" onClick={handleSignOut}>Sign Out</Link>
-        ):(
-        <Link to="/signin" className="nav-item">Sign In</Link>
+          <Link to="#" className="nav-item" onClick={handleSignOut}>
+            Sign Out
+          </Link>
+        ) : (
+          <Link to="/signin" className="nav-item">
+            Sign In
+          </Link>
         )}
       </nav>
 
@@ -64,7 +86,6 @@ export function NavBar({ isSignIn, setIsSignIn }) {
         />
 
         {userIsAuthenticated && <span className="cart-quantity">1</span>}
-      
       </section>
     </section>
   );

@@ -3,7 +3,7 @@ import { ProfileSideBar } from "./ProfileSideBar";
 import { ProfileSettings } from "./ProfileSettings";
 import "./Profile.css";
 
-export function Profile() {
+export function Profile({setIsSignIn}) {
   return (
     <>
       <title>Profile | UrbanPlate</title>
@@ -14,7 +14,9 @@ export function Profile() {
 
       <main>
         <aside className="profile-sidebar-container">
-          <ProfileSideBar/>
+          <ProfileSideBar
+           setIsSignIn={setIsSignIn}
+          />
         </aside>
 
         <section>

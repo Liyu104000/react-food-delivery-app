@@ -7,43 +7,72 @@ import axios from "axios";
 import "./Home.css";
 
 const productCategoriesList = [
-  {id: "daily-promotion", name: "Daily Promotion"},
-  {id: "coffee-and-tea", name: "Coffee & Tea"},
-  {id: "fruit-juice", name: "Fruit Juice"},
-  {id: "sides", name: "Sides"},
-  {id: "pasta", name: "Pasta"},
-  {id: "main-course", name: "Main Course"},
+  { id: "daily-promotion", name: "Daily Promotion" },
+  { id: "coffee-and-tea", name: "Coffee & Tea" },
+  { id: "fruit-juice", name: "Fruit Juice" },
+  { id: "sides", name: "Sides" },
+  { id: "pasta", name: "Pasta" },
+  { id: "main-course", name: "Main Course" },
 ];
 
 export function Home() {
-  const [products,setProducts] = useState([]);
+  const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("daily-promotion");
+
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
   useEffect(() => {
     const getProducts = async () => {
-      try{
-        const response = await axios.get("https://6a4b259cf5eab0bb6b6245aa.mockapi.io/products")
+      try {
+        const response = await axios.get(
+          "https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/products",
+          {
+            headers: {
+              apikey: supaBaseKey,
+            },
+          },
+        );
 
-        setProducts(response.data);
-      }catch(error){
-       console.error("Error loading products:", error.message);
-      };
-    }
+        const productFoundList = response.data;
+
+        if (productFoundList.length > 0) {
+          const productsData = productFoundList.map(indivProduct => ({
+            id: indivProduct.id,
+            name: indivProduct.name,
+            description: indivProduct.description,
+            priceCents: indivProduct.price,
+            discountPriceCents: indivProduct.discount_price || undefined,
+            category: indivProduct.category,
+            image: indivProduct.image_url,
+          }))
+
+          setProducts(productsData);
+        }else{
+          throw new Error("Failed To Load Products");
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
 
     getProducts();
-  },[])
+  }, []);
 
-  const filteredProducts = products.filter(product => {
-    if(selectedCategory === "daily-promotion"){
+  const filteredProducts = products.filter((product) => {
+    if (selectedCategory === "daily-promotion") {
       return product.discountPriceCents !== undefined;
     }
 
     return product.category === selectedCategory;
   });
 
-  const currentCategorySelected = productCategoriesList.find(cat => cat.id === selectedCategory)
+  const currentCategorySelected = productCategoriesList.find(
+    (cat) => cat.id === selectedCategory,
+  );
 
-  const categoryHeading = currentCategorySelected ? currentCategorySelected.name : "Our Menu"
+  const categoryHeading = currentCategorySelected
+    ? currentCategorySelected.name
+    : "Our Menu";
 
   return (
     <>
@@ -61,13 +90,13 @@ export function Home() {
         </section>
 
         <section className="home-content">
-          <Sidebar 
+          <Sidebar
             categoriesList={productCategoriesList}
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}
           />
-      
-          <MenuItem 
+
+          <MenuItem
             categoryHeading={categoryHeading}
             products={filteredProducts}
           />

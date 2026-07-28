@@ -2,9 +2,13 @@ import { AccountDetails } from "./AccountDetails";
 import { SavedCards } from "./SavedCards";
 import { SavedAddresses } from "./SavedAddresses";
 import { UpdatePassword } from "./UpdatePassword";
+import { useState } from "react";
 import "./ProfileSettings.css";
 
 export function ProfileSettings() {
+  const [confirmMsg, setConfirmMsg] = useState("");
+  const [errorMsg, setErrorMsg] = useState("");
+  
   return (
     <section className="profile-settings">
       <section className="profile-settings-sec">
@@ -17,7 +21,12 @@ export function ProfileSettings() {
 
         <hr />
 
-        <AccountDetails />
+        <AccountDetails
+         confirmMsg={confirmMsg}
+         setConfirmMsg={setConfirmMsg}
+         errorMsg={errorMsg}
+         setErrorMsg={setErrorMsg}
+         />
       </section>
 
       <section className="profile-settings-sec">
@@ -56,7 +65,12 @@ export function ProfileSettings() {
 
         <hr />
 
-        <UpdatePassword />
+        <UpdatePassword 
+         confirmMsg={confirmMsg}
+         setConfirmMsg={setConfirmMsg}
+         errorMsg={errorMsg}
+         setErrorMsg={setErrorMsg}
+        />
       </section>
     </section>
   );
