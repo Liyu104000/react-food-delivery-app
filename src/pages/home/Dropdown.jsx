@@ -29,7 +29,7 @@ export function Dropdown() {
 
     let timeTracker;
 
-    const closingTime = dayjs().hour(16).minute(0).second(0);
+    const closingTime = dayjs().hour(15).minute(0).second(0);
 
     if(selectedDate === "Today"){
       const currentTime = dayjs();

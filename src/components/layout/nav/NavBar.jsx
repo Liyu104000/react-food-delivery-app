@@ -16,6 +16,10 @@ export function NavBar({ isSignIn, setIsSignIn }) {
     navigate("/checkout");
   };
 
+  const goToHome = () => {
+    navigate("/")
+  }
+
   const handleSignOut = (e) => {
     e.preventDefault();
 
@@ -36,7 +40,7 @@ export function NavBar({ isSignIn, setIsSignIn }) {
 
         setIsSignIn(false);
 
-        navigate("/");
+        goToHome();
       }
     });
   };

@@ -44,7 +44,7 @@ export function ProfileSideBar({ setIsSignIn }) {
     e.preventDefault();
     Swal.fire({
       title: "Delete Account?",
-      text: " Continue. This Action Can't Be Reversed.",
+      text: "Continue. This Action Can't Be Reversed.",
       icon: "warning",
       iconColor: "orange",
       confirmButtonText: "Delete",

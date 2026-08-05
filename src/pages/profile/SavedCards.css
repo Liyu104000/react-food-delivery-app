@@ -19,8 +19,33 @@
   font-size: 12px;
 }
 
+.no-card-container{
+  background-color: rgb(250, 251, 252);
+  border: 1px dashed rgb(210, 214, 222); 
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 24px auto 32px auto;
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
 
+.no-card-icon {
+  font-size: 30px;
+  color: #a0aec0; 
+}
 
+.no-card-msg {
+  color: #718096; 
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center; 
+  margin: 0;
+  padding: 0;
+}
 
 
 

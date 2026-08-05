@@ -25,12 +25,10 @@ export function Product() {
         );
 
         const indivProductData = response.data.map((indivProduct) => ({
-          id: indivProduct.id,
           name: indivProduct.name,
           description: indivProduct.description,
           priceCents: indivProduct.price,
           discountPriceCents: indivProduct.discount_price || undefined ,
-          category: indivProduct.category,
           image: indivProduct.image_url,
         }));
 

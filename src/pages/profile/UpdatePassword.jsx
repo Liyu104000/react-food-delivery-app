@@ -11,9 +11,11 @@ export function UpdatePassword({
   const [currentPassword, setCurrentPassword] = useState({
     password: "",
   });
-  const[newPassword, setNewPassword] = useState("");
-  const[confirmNewPassword, setConfirmNewPassword] = useState("")
+  const [newPassword, setNewPassword] = useState("");
+  const [confirmNewPassword, setConfirmNewPassword] = useState("");
   const [userId, setUserId] = useState(null);
+
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
   useEffect(() => {
     let currentUser = sessionStorage.getItem("activeUser");
@@ -40,29 +42,54 @@ export function UpdatePassword({
       if (
         !currentPassword.password.trim() ||
         !newPassword.trim() ||
-        !confirmNewPassword.trim() 
+        !confirmNewPassword.trim()
       ) {
         throw new Error("All fields must be provided!");
-      }else if(newPassword !== confirmNewPassword){
-        throw new Error("New Password Confirmation does not match")
+      } else if (newPassword !== confirmNewPassword) {
+        throw new Error("New Password Confirmation does not match");
       }
 
-      const response = await axios.put(
-        `https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users/${userId}`,{
-          password: newPassword.trim()
-        }
+      const accountData = {
+        password: newPassword.trim(),
+      };
+
+      const response = await axios.patch(
+        `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/users?id=eq.${userId}`,
+        accountData,
+        {
+          headers: {
+            apikey: supaBaseKey,
+            "Content-Type": "application/json",
+            Prefer: "return=representation",
+          },
+        },
       );
 
-      sessionStorage.setItem("activeUser", JSON.stringify(response.data));
+      const accountDetailList = response.data;
 
-      setCurrentPassword({ password: newPassword.trim() });
-      setConfirmMsg("Password Updated Successfully!");
-      setNewPassword("");
-      setConfirmNewPassword("");
-      
-      setTimeout(() => {
-        setConfirmMsg("");
-      }, 2000);
+      if (accountDetailList && accountDetailList.length > 0) {
+        const foundAccountDetail = accountDetailList[0];
+
+        const updatedAccountData = {
+          id: userId,
+          firstName: foundAccountDetail.first_name,
+          lastName: foundAccountDetail.last_name,
+          email: foundAccountDetail.email,
+          phoneNo: foundAccountDetail.phone_no,
+          password: foundAccountDetail.password,
+        };
+
+        sessionStorage.setItem("activeUser", JSON.stringify(updatedAccountData));
+
+        setCurrentPassword({ password: newPassword.trim() });
+        setConfirmMsg("Password Updated Successfully!");
+        setNewPassword("");
+        setConfirmNewPassword("");
+
+        setTimeout(() => {
+          setConfirmMsg("");
+        }, 2000);
+      }
     } catch (error) {
       setErrorMsg(error.message);
       setTimeout(() => {
@@ -96,7 +123,7 @@ export function UpdatePassword({
           className="update-password-input"
           id="current-pwd"
           value={currentPassword.password}
-          readonly
+          readOnly
         />
       </div>
 
@@ -104,7 +131,13 @@ export function UpdatePassword({
         <label htmlFor="new-pwd" className="account-management-label">
           New Password:
         </label>
-        <input type="password" className="update-password-input" id="new-pwd" value={newPassword} onChange={e => setNewPassword(e.target.value)} />
+        <input
+          type="password"
+          className="update-password-input"
+          id="new-pwd"
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+        />
       </div>
 
       <div className="account-management-group form-row-indent">
@@ -115,8 +148,8 @@ export function UpdatePassword({
           type="password"
           className="update-password-input"
           id="confirm-new-pwd"
-          value={confirmNewPassword} 
-          onChange={e => setConfirmNewPassword(e.target.value)}
+          value={confirmNewPassword}
+          onChange={(e) => setConfirmNewPassword(e.target.value)}
         />
       </div>
 
@@ -124,9 +157,15 @@ export function UpdatePassword({
         {confirmMsg && <p className="success-msg">{confirmMsg}</p>}
         {errorMsg && <p className="error-msg">{errorMsg}</p>}
 
-        <button type="submit" className="btn-success btn-save-changes">Save</button>
+        <button type="submit" className="btn-success btn-save-changes">
+          Save
+        </button>
 
-        <button type="button" className="btn-outline-danger btn-discard-changes" onClick={discardChanges}>
+        <button
+          type="button"
+          className="btn-outline-danger btn-discard-changes"
+          onClick={discardChanges}
+        >
           Discard
         </button>
       </footer>

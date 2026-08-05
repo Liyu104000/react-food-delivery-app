@@ -12,6 +12,9 @@ export function AccountDetails({confirmMsg,setConfirmMsg,errorMsg,setErrorMsg}) 
 
   const [userId, setUserId] = useState(null);
 
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
+
+
   useEffect(() => {
     let currentUser = sessionStorage.getItem("activeUser");
 
@@ -20,10 +23,10 @@ export function AccountDetails({confirmMsg,setConfirmMsg,errorMsg,setErrorMsg}) 
 
       setUserId(currentUser.id);
       setFormData({
-        firstName: currentUser.firstName,
-        lastName: currentUser.lastName,
-        email: currentUser.email,
-        phoneNo: currentUser.phoneNo,
+        firstName: currentUser.firstName || "",
+        lastName: currentUser.lastName || "",
+        email: currentUser.email || "",
+        phoneNo: currentUser.phoneNo || "",
       });
     }
   }, []);
@@ -48,16 +51,43 @@ export function AccountDetails({confirmMsg,setConfirmMsg,errorMsg,setErrorMsg}) 
         throw new Error("All fields must be provided!");
       }
 
-      const response = await axios.put(
-        `https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users/${userId}`, formData
+      const accountData = {
+        first_name: formData.firstName.trim(),
+        last_name: formData.lastName.trim(),
+        email: formData.email.trim().toLowerCase(),
+        phone_no: formData.phoneNo.trim(),
+      }
+
+      const response = await axios.patch(
+        `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/users?id=eq.${userId}`, accountData, {
+          headers: {
+             apikey: supaBaseKey,
+             "Content-Type": "application/json",
+             Prefer: "return=representation",
+          }
+        }
       );
 
-      sessionStorage.setItem("activeUser", JSON.stringify(response.data));
+      const accountDetailList = response.data;
 
-      setConfirmMsg("Account Details Updated Successfully!")
-      setTimeout(() => {
-        setConfirmMsg("");
-      }, 2000);
+      if(accountDetailList && accountDetailList.length > 0){
+        const foundAccountDetail = accountDetailList[0];
+
+        const updatedAccountData = {
+          id: userId, 
+          firstName: foundAccountDetail.first_name,
+          lastName: foundAccountDetail.last_name,
+          email: foundAccountDetail.email,
+          phoneNo: foundAccountDetail.phone_no,
+        }
+
+        sessionStorage.setItem("activeUser", JSON.stringify(updatedAccountData));
+
+        setConfirmMsg("Account Details Updated Successfully!")
+        setTimeout(() => {
+          setConfirmMsg("");
+        }, 2000);
+      }
     } catch (error) {
       setErrorMsg(error.message);
       setTimeout(() => {
@@ -72,10 +102,10 @@ export function AccountDetails({confirmMsg,setConfirmMsg,errorMsg,setErrorMsg}) 
     if (currentUser) {
       currentUser = JSON.parse(currentUser);
       setFormData({
-        firstName: currentUser.firstName,
-        lastName: currentUser.lastName,
-        email: currentUser.email,
-        phoneNo: currentUser.phoneNo,
+        firstName: currentUser.firstName || "",
+        lastName: currentUser.lastName || "",
+        email: currentUser.email || "",
+        phoneNo: currentUser.phoneNo || "",
       });
     }
 
