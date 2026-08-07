@@ -62,11 +62,11 @@ export function SavedCards() {
             <label class="card-form-label">Card Number</label>
             <div class="card-form-input">
               <i class="fa fa-credit-card fa-fw card-form-icon"></i>
-              <input type="text" placeholder="09109020" class="card-input-indiv" id="swal-card-no" autocomplete="off"/>
+              <input type="text" placeholder="09109020" class="card-input" id="swal-card-no" autocomplete="off"/>
             </div>
           </fieldset>
     
-          <div class="card-form-row">
+          <div class="form-row-2col">
             <fieldset>
               <label class="card-form-label">Expiry Date</label>
     
@@ -75,7 +75,7 @@ export function SavedCards() {
                 <input
                   type="text"
                   placeholder="MM/YY"
-                  class="card-input-group"
+                  class="card-input"
                   id="swal-card-expiry" autocomplete="off"
                 />
               </div>
@@ -86,7 +86,7 @@ export function SavedCards() {
     
               <div class="card-form-input">
                 <i class="fa fa-lock fa-fw card-form-icon"></i>
-                <input type="text" placeholder="334"  class="card-input-group"
+                <input type="text" placeholder="334"  class="card-input"
                 id="swal-card-cvv" autocomplete="off"
                 />
               </div>
@@ -101,7 +101,7 @@ export function SavedCards() {
               <input
                 type="text"
                 placeholder="Name On Card"
-                class="card-input-indiv"
+                class="card-input"
                 id="swal-card-cardholder-name" autocomplete="off"
               />
             </div>
@@ -201,7 +201,7 @@ export function SavedCards() {
             <label class="card-form-label">Card Number</label>
             <div class="card-form-input">
               <i class="fa fa-credit-card fa-fw card-form-icon"></i>
-              <input type="text" value="${card.card_no || ''}" class="card-input-indiv" id="swal-edit-no" autocomplete="off"/>
+              <input type="text" value="${card.card_no || ''}" class="card-input" id="swal-edit-no" autocomplete="off"/>
             </div>
           </fieldset>
     
@@ -210,7 +210,7 @@ export function SavedCards() {
               <label class="card-form-label">Expiry Date</label>
               <div class="card-form-input">
                 <i class="fa fa-calendar fa-fw card-form-icon"></i>
-                <input type="text" value="${card.card_expiry || ''}" placeholder="MM/YY" class="card-input-group" id="swal-edit-expiry" autocomplete="off"/>
+                <input type="text" value="${card.card_expiry || ''}" class="card-input" id="swal-edit-expiry" autocomplete="off"/>
               </div>
             </fieldset>
     
@@ -218,7 +218,7 @@ export function SavedCards() {
               <label class="card-form-label">CVV</label>
               <div class="card-form-input">
                 <i class="fa fa-lock fa-fw card-form-icon"></i>
-                <input type="text" value="${card.cvv || ''}" class="card-input-group" id="swal-edit-cvv" autocomplete="off"/>
+                <input type="text" value="${card.cvv || ''}" class="card-input" id="swal-edit-cvv" autocomplete="off"/>
               </div>
             </fieldset>
           </div>
@@ -227,7 +227,7 @@ export function SavedCards() {
             <label class="card-form-label">Cardholder Name</label>
             <div class="card-form-input">
               <i class="fa fa-user fa-fw card-form-icon"></i>
-              <input type="text" value="${card.cardholder_name || ''}" class="card-input-indiv" id="swal-edit-cardholder-name" autocomplete="off"/>
+              <input type="text" value="${card.cardholder_name || ''}" class="card-input" id="swal-edit-cardholder-name" autocomplete="off"/>
             </div>
           </fieldset>
         </div>`,
@@ -352,7 +352,7 @@ export function SavedCards() {
   return (
     <form className="saved-method-form">
       {cardsList.length > 0 ? (
-        cardsList.map((card) => (
+        cardsList.map(card => (
           <fieldset className="saved-method-container" key={card.id}>
             <section className="saved-card-info">
               <img
@@ -387,7 +387,7 @@ export function SavedCards() {
           <FontAwesomeIcon icon={faCreditCard} className="no-card-icon" />
           <p className="no-card-msg">
             You do not have any saved cards! <br />
-            Click the <strong>New Card</strong> button to add a card card.
+            Click the <strong>New Card</strong> button to add a card.
           </p>
         </section>
       )}

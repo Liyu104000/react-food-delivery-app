@@ -129,6 +129,21 @@
   text-align: left;
 }
 
+.form-row-2col, .form-row-custom{
+  display: grid;
+  gap: 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-row-2col{
+  grid-template-columns: 1fr 1fr;
+}
+
+.form-row-custom{
+  grid-template-columns: 2fr 1fr;
+}
+
 .swal-form-wrapper {
   display: flex;
   justify-content: center;
@@ -146,33 +161,19 @@
   margin-bottom: 14px;
 }
 
-.card-input-indiv,.card-input-group {
+.card-input{
   background-color: rgb(250, 250, 250);
   border: 1px solid rgb(229, 231, 235);
   border-radius: 6px;
   padding: 12px 0px 12px 45px !important;
-}
-
-.card-form-row{
-  display: flex;
-  gap: 16px;
-  width: 100%;
-}
-
-.card-input-indiv:focus,.card-input-group:focus{
-  outline: none;
-  border: 2px solid rgb(209, 213, 219);
-  box-shadow: 0 0 0 0.3px rgba(209, 213, 219);
-}
-
-.card-input-indiv{
   width: 100% !important;
   box-sizing: border-box;
 }
 
-.card-input-group{
-  width: 100% !important; /* Change from 180px to scale dynamically in its flex half */
-  box-sizing: border-box;
+.card-input:focus{
+  outline: none;
+  border: 2px solid rgb(209, 213, 219);
+  box-shadow: 0 0 0 0.3px rgba(209, 213, 219);
 }
 
 .card-form-icon{
@@ -180,6 +181,34 @@
   position: absolute;
   top: 14px;
   left: 10px;
+}
+
+.no-card-container{
+  background-color: rgb(250, 251, 252);
+  border: 1px dashed rgb(210, 214, 222); 
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 24px auto 32px auto;
+  max-width: 300px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.no-card-icon {
+  font-size: 30px;
+  color: #a0aec0; 
+}
+
+.no-card-msg {
+  color: #718096; 
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center; 
+  margin: 0;
+  padding: 0;
 }
 
 /*SweetAlert 2 Styles */

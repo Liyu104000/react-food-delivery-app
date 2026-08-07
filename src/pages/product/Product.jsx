@@ -28,12 +28,13 @@ export function Product() {
           name: indivProduct.name,
           description: indivProduct.description,
           priceCents: indivProduct.price,
-          discountPriceCents: indivProduct.discount_price || undefined ,
+          discountPriceCents: indivProduct.discount_price || undefined,
           image: indivProduct.image_url,
         }));
 
-
-        setIndivProduct(indivProductData);
+        if (indivProductData.length > 0) {
+          setIndivProduct(indivProductData[0]);
+        }
       } catch (error) {
         console.error("Error loading products:", error.message);
       }

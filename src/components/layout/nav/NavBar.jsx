@@ -29,18 +29,19 @@ export function NavBar({ isSignIn, setIsSignIn }) {
       icon: "question",
       iconColor: "rgb(108, 117, 125)",
       confirmButtonText: "Sign Out",
-      confirmButtonColor: "rgb(232,93,4);",
+      confirmButtonColor: "rgb(232,93,4)",
       showCancelButton: true,
       cancelButtonText: "Cancel",
       cancelButtonColor: "rgb(108, 117, 125)",
-    }).then(async (result) => {
+    }).then((result) => {
       if (result.isConfirmed) {
         sessionStorage.removeItem("activeUser");
         sessionStorage.removeItem("isUserSignedIn");
 
+        goToHome();
+        
         setIsSignIn(false);
 
-        goToHome();
       }
     });
   };
