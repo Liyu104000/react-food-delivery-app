@@ -58,7 +58,7 @@ export function Home() {
     getProducts();
   }, []);
 
-  const filteredProducts = products.filter((product) => {
+  const filteredProducts = products.filter(product => {
     if (selectedCategory === "daily-promotion") {
       return product.discountPriceCents !== undefined;
     }

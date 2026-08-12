@@ -55,7 +55,7 @@
 
 .date-options{
   display: grid;
-  grid-template-columns: repeat(3,55px);
+  grid-template-columns: repeat(3,65px);
   gap: 10px;
   justify-content: center;
 }
@@ -78,6 +78,7 @@
 .btn-delivery-date{
   border-radius: 5px;
   padding: 6px 4px;
+  white-space: nowrap;
 }
 
 .time-options{

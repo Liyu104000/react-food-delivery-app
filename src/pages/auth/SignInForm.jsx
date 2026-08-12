@@ -70,7 +70,7 @@ export function SignInForm({email, setEmail, password, setPassword, errorMsg, au
         <p className="auth-link-msg">New to UrbanPlate?</p>
 
         <Link to="/register" className="auth-link">
-          Create an Account
+          Register Now
         </Link>
       </footer>
     </section>

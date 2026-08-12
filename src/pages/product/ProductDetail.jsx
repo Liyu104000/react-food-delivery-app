@@ -6,7 +6,6 @@ export function ProductDetail({ product }) {
   return (
     <article className="product-detail-container">
       <header>
-        <h1 className="delivery-time">Today . 2:00PM - 2:30PM</h1>
         <p className="product-name product-sel-name">{product.name}</p>
       </header>
 

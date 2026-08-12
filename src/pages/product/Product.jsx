@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, useNavigate} from "react-router";
 import axios from "axios";
 import { Header } from "../../components/layout/header/Header";
 import { ProductImage } from "./ProductImage";
@@ -10,9 +10,18 @@ export function Product() {
 
   const { id } = useParams();
 
+  const navigate = useNavigate();
+
   const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
   useEffect(() => {
+    const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
+
+    if(!isUserSignedIn){
+      navigate("/signin");
+      return;
+    }
+
     const getIndivProduct = async () => {
       try {
         const response = await axios.get(
