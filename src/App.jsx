@@ -14,7 +14,6 @@ import "./App.css";
 function App() {
   const [isSignIn, setIsSignIn] = useState(false);
   
-
   const location = useLocation();
 
   const showNavBar =

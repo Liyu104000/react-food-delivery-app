@@ -2,6 +2,7 @@ import { NavBar } from "../../components/layout/nav/Navbar";
 import { Sidebar } from "./Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
 import { MenuItem } from "./MenuItem";
+import { useCartQuantity} from "../../utils/cartQuantity";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
@@ -18,6 +19,7 @@ const productCategoriesList = [
 export function Home() {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("daily-promotion");
+  const [cartQuantity, setCartQuantity] = useCartQuantity();
 
   const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
@@ -51,7 +53,7 @@ export function Home() {
           throw new Error("Failed To Load Products");
         }
       } catch (error) {
-        console.log(error.message);
+       console.error("Could Not Load Products", error.message);
       }
     };
 
@@ -79,7 +81,9 @@ export function Home() {
       <title>Home | UrbanPlate</title>
 
       <header>
-        <NavBar />
+        <NavBar 
+          cartQuantity={cartQuantity}
+        />
       </header>
 
       <main>
@@ -99,6 +103,7 @@ export function Home() {
           <MenuItem
             categoryHeading={categoryHeading}
             products={filteredProducts}
+            setCartQuantity={setCartQuantity}
           />
         </section>
       </main>

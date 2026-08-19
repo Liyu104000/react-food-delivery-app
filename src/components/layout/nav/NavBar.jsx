@@ -5,7 +5,7 @@ import { NavLink, Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import "./NavBar.css";
 
-export function NavBar({ isSignIn, setIsSignIn }) {
+export function NavBar({ isSignIn, setIsSignIn, cartQuantity}) {
   const navigate = useNavigate();
 
   const hasActiveSession = sessionStorage.getItem("isUserSignedIn") === "true";
@@ -90,7 +90,7 @@ export function NavBar({ isSignIn, setIsSignIn }) {
           onClick={goToCheckout}
         />
 
-        {userIsAuthenticated && <span className="cart-quantity">1</span>}
+        {userIsAuthenticated && <span className="cart-quantity">{cartQuantity}</span>}
       </section>
     </section>
   );
