@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate} from "react-router";
+import { useParams, useNavigate } from "react-router";
 import axios from "axios";
-import { Header } from "../../components/layout/header/Header";
+import { useCartQuantity } from "../../utils/cartQuantity";
+import { NavBar } from "../../components/layout/nav/Navbar";
 import { ProductImage } from "./ProductImage";
 import { ProductDetail } from "./ProductDetail";
 import "./Product.css";
 export function Product() {
   const [indivProduct, setIndivProduct] = useState(null);
+  const [cartQuantity, setCartQuantity] = useCartQuantity();
+
 
   const { id } = useParams();
 
@@ -17,7 +20,7 @@ export function Product() {
   useEffect(() => {
     const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
 
-    if(!isUserSignedIn){
+    if (!isUserSignedIn) {
       navigate("/signin");
       return;
     }
@@ -34,6 +37,7 @@ export function Product() {
         );
 
         const indivProductData = response.data.map((indivProduct) => ({
+          id: indivProduct.id,
           name: indivProduct.name,
           description: indivProduct.description,
           priceCents: indivProduct.price,
@@ -61,7 +65,7 @@ export function Product() {
       <title>{`${indivProduct?.name || "Welcome To"}| UrbanPlate`}</title>
 
       <header>
-        <Header />
+        <NavBar cartQuantity={cartQuantity} />
       </header>
 
       <main className="product-container">
@@ -70,7 +74,9 @@ export function Product() {
           placeholder={indivProduct?.name}
         />
 
-        <ProductDetail product={indivProduct} />
+        <ProductDetail 
+         product={indivProduct} 
+         setCartQuantity={setCartQuantity}/>
       </main>
     </>
   );

@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { formatCurrency } from "../../utils/money";
 import { Link } from "react-router";
-import axios from "axios";
 import Swal from "sweetalert2";
+import { addToCart } from "../../utils/cartService";
 import "../../components/shared/ProductShared.css";
 import "./MenuItem.css";
 
 export function MenuItem({ categoryHeading, products, setCartQuantity }) {
   const [quantities, setQuantities] = useState({});
-
-  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
   const handleQuantityChange = (productId, selectedValue) => {
     setQuantities((prev) => ({
@@ -18,7 +16,7 @@ export function MenuItem({ categoryHeading, products, setCartQuantity }) {
     }));
   };
 
-  const addToCart = async (product) => {
+  const handleAddToCart = async (product) => {
     try {
       let currentUser = sessionStorage.getItem("activeUser");
 
@@ -27,44 +25,8 @@ export function MenuItem({ categoryHeading, products, setCartQuantity }) {
 
         const selectedQuantity = quantities[product.id] || 1;
 
-        const checkItemExist = await axios.get(
-          `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/cart?user_id=eq.${currentUser.id}&product_id=eq.${product.id}`,
-          { headers: { apikey: supaBaseKey } },
-        );
 
-        const existingItem = checkItemExist.data;
-
-        if (existingItem && existingItem.length > 0) {
-          const currentItem = existingItem[0];
-          const newItemQuantity = Number(currentItem.quantity) + Number(selectedQuantity);
-
-          await axios.patch(
-            `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/cart?id=eq.${currentItem.id}`,
-            {
-              quantity: newItemQuantity,
-            },
-            {
-              headers: {
-                apikey: supaBaseKey,
-              },
-            },
-          );
-        } else {
-          const cartData = {
-            user_id: currentUser.id,
-            product_id: product.id,
-            quantity: selectedQuantity,
-          };
-          await axios.post(
-            `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/cart`,
-            cartData,
-            {
-              headers: {
-                apikey: supaBaseKey,
-              },
-            },
-          );
-        }
+        await addToCart(currentUser.id, product.id, selectedQuantity);
 
         setCartQuantity((prevCount) => (prevCount + selectedQuantity));
 
@@ -151,7 +113,7 @@ export function MenuItem({ categoryHeading, products, setCartQuantity }) {
 
             <button
               className="product-btn btn-primary add-cart-btn"
-              onClick={() => addToCart(product)}
+              onClick={() => handleAddToCart(product)}
             >
               Add To Cart
             </button>

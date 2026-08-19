@@ -2,8 +2,8 @@ import Macaroni from "../../assets/images/macaroni.jpg";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router";
-import "./PaymentDetails.css";
-export function PaymentDetails() {
+import "./PaymentSummary.css";
+export function PaymentSummary() {
   const navigate= useNavigate();
 
   const goToPayment = () => {

@@ -16,11 +16,11 @@ export function Checkout() {
       <main className="checkout-layout">
         <section className="left-column">
           <DeliveryDetails />
-          <Recommendation />
+          <Recommendat />
         </section>
 
         <section className="right-column">
-           <PaymentDetails />
+           <PaymentSummary />
         </section>
       </main>
     </>
