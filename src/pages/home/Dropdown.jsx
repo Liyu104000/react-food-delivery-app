@@ -1,15 +1,16 @@
-import { useState } from "react";
+import { useState} from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faX, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import dayjs from "dayjs";
 import "./Dropdown.css";
 
-const currentMinutesBaseline = dayjs().minute();
-const initialStart = dayjs().minute(currentMinutesBaseline < 30 ? 0 : 30).second(0);
-const initialTimeSlotLabel = `${initialStart.format("h:mmA")} - ${initialStart.add(30, "minute").format("h:mmA")}`;
-
-export function Dropdown() {
- 
+export function Dropdown({
+  deliveryDate,
+  setDeliveryDate,
+  deliveryTime,
+  setDeliveryTime,
+  initialTimeSlotLabel,
+}) {
   const calculateDeliveryDates = () => {
     const deliveryDates = [];
 
@@ -24,38 +25,40 @@ export function Dropdown() {
     return deliveryDates;
   };
 
-  const calculateDeliveryTimes = selectedDate => {
+  const calculateDeliveryTimes = (selectedDate) => {
     const deliveryTimes = [];
 
     let timeTracker;
 
-    const closingTime = dayjs().hour(15).minute(0).second(0);
+    const closingTime = dayjs().hour(17).minute(0).second(0);
 
-    if(selectedDate === "Today"){
+    if (selectedDate === "Today") {
       const currentTime = dayjs();
       const openingTime = dayjs().hour(9).minute(0).second(0);
 
-      if(currentTime.isBefore(openingTime)){
+      if (currentTime.isBefore(openingTime)) {
         timeTracker = openingTime;
-      }else{
+      } else {
         const currentMinutes = currentTime.minute();
-        timeTracker = dayjs().minute(currentMinutes < 30 ? 0 : 30).second(0);
+        timeTracker = dayjs()
+          .minute(currentMinutes < 30 ? 0 : 30)
+          .second(0);
       }
-    }else{
+    } else {
       timeTracker = dayjs().hour(9).minute(0).second(0);
     }
 
-    for (let i = 1; i <= 6; i++) {
-      if(timeTracker.isAfter(closingTime) || timeTracker.isSame(closingTime)){
+    for (let i = 1; i <= 8; i++) {
+      if (timeTracker.isAfter(closingTime) || timeTracker.isSame(closingTime)) {
         break;
       }
 
       const startTime = timeTracker.format("h:mmA");
 
-      if(selectedDate === "Today"){
-         timeTracker = timeTracker.add(30, "minute");
-      }else{
-         timeTracker = timeTracker.add(1, "hour");
+      if (selectedDate === "Today") {
+        timeTracker = timeTracker.add(30, "minute");
+      } else {
+        timeTracker = timeTracker.add(1, "hour");
       }
 
       const endTime = timeTracker.format("h:mmA");
@@ -85,20 +88,21 @@ export function Dropdown() {
   };
 
   const [showDialog, setShowDialog] = useState(false);
-  const [deliveryDate, setDeliveryDate] = useState("Today");
-  const [deliveryTime, setDeliveryTime] = useState(initialTimeSlotLabel);
+
   const [tempDate, setTempDate] = useState("Today");
   const [tempTime, setTempTime] = useState(initialTimeSlotLabel);
 
   const dynamicDeliveryDates = calculateDeliveryDates();
   const dynamicDeliveryTimes = calculateDeliveryTimes(tempDate);
 
-  
-
   return (
     <section className="delivery-schedule-container">
       <div className="delivery-schedule-selector">
-        <span>{dynamicDeliveryTimes.length > 0 ? `${deliveryDate} . ${deliveryTime}` : "UrbanPlate is closed"}</span>
+        <span>
+          {dynamicDeliveryTimes.length > 0
+            ? `${deliveryDate} . ${deliveryTime}`
+            : "UrbanPlate is closed"}
+        </span>
 
         <FontAwesomeIcon
           icon={faCaretDown}
@@ -146,22 +150,27 @@ export function Dropdown() {
 
           <section className="time-options">
             {dynamicDeliveryTimes.length > 0 ? (
-              dynamicDeliveryTimes.map(time => (
-              <button
-                key={time.id}
-                className={`btn-delivery-time ${tempTime === time.label ? "is-selected" : ""}`}
-                onClick={() => setTempTime(time.label)}
-              >{time.label}</button>
-            ))
+              dynamicDeliveryTimes.map((time) => (
+                <button
+                  key={time.id}
+                  className={`btn-delivery-time ${tempTime === time.label ? "is-selected" : ""}`}
+                  onClick={() => setTempTime(time.label)}
+                >
+                  {time.label}
+                </button>
+              ))
             ) : (
-              <p className="closed-msg">UrbanPlate is closed for today. Order again tomorrow.</p>
+              <p className="closed-msg">
+                UrbanPlate is closed for today. Order again tomorrow.
+              </p>
             )}
-            
           </section>
 
           <footer>
-            <button className={`btn-confirm ${dynamicDeliveryTimes.length === 0 ? "btn-success-disable" : "btn-success"}`} onClick={handleConfirm}
-             disabled = {dynamicDeliveryTimes.length === 0}
+            <button
+              className={`btn-confirm ${dynamicDeliveryTimes.length === 0 ? "btn-success-disable" : "btn-success"}`}
+              onClick={handleConfirm}
+              disabled={dynamicDeliveryTimes.length === 0}
             >
               Confirm
             </button>

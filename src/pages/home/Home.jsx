@@ -2,7 +2,7 @@ import { NavBar } from "../../components/layout/nav/Navbar";
 import { Sidebar } from "./Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
 import { MenuItem } from "./MenuItem";
-import { useCartQuantity} from "../../utils/cartQuantity";
+import { useCartQuantity } from "../../utils/cartQuantity";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import "./Home.css";
@@ -16,7 +16,13 @@ const productCategoriesList = [
   { id: "main-course", name: "Main Course" },
 ];
 
-export function Home() {
+export function Home({
+  deliveryDate,
+  setDeliveryDate,
+  deliveryTime,
+  setDeliveryTime,
+  initialTimeSlotLabel,
+}) {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("daily-promotion");
   const [cartQuantity, setCartQuantity] = useCartQuantity();
@@ -38,7 +44,7 @@ export function Home() {
         const productFoundList = response.data;
 
         if (productFoundList.length > 0) {
-          const productsData = productFoundList.map(indivProduct => ({
+          const productsData = productFoundList.map((indivProduct) => ({
             id: indivProduct.id,
             name: indivProduct.name,
             description: indivProduct.description,
@@ -46,21 +52,21 @@ export function Home() {
             discountPriceCents: indivProduct.discount_price || undefined,
             category: indivProduct.category,
             image: indivProduct.image_url,
-          }))
+          }));
 
           setProducts(productsData);
-        }else{
+        } else {
           throw new Error("Failed To Load Products");
         }
       } catch (error) {
-       console.error("Could Not Load Products", error.message);
+        console.error("Could Not Load Products", error.message);
       }
     };
 
     getProducts();
   }, []);
 
-  const filteredProducts = products.filter(product => {
+  const filteredProducts = products.filter((product) => {
     if (selectedCategory === "daily-promotion") {
       return product.discountPriceCents !== undefined;
     }
@@ -81,16 +87,20 @@ export function Home() {
       <title>Home | UrbanPlate</title>
 
       <header>
-        <NavBar 
-          cartQuantity={cartQuantity}
-        />
+        <NavBar cartQuantity={cartQuantity} />
       </header>
 
       <main>
         <section>
           <h1 className="home-heading">Great Food, Delivered by UrbanPlate</h1>
 
-          <DeliveryInfo />
+          <DeliveryInfo
+            deliveryDate={deliveryDate}
+            setDeliveryDate={setDeliveryDate}
+            deliveryTime={deliveryTime}
+            setDeliveryTime={setDeliveryTime}
+            initialTimeSlotLabel={initialTimeSlotLabel}
+          />
         </section>
 
         <section className="home-content">

@@ -1,16 +1,16 @@
-.payment-details-card{
+.payment-summary-card{
   width: 450px;
   height: 470px;
 }
 
-.payment-details-header{
+.payment-summary-header{
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 15px 20px 0;
 }
 
-.payment-details-heading, .payment-charges-heading{
+.payment-summary-heading, .payment-charges-heading{
   font-size: 16px;
   font-weight: bold;
 }
@@ -24,11 +24,11 @@
   color: rgb(120, 120, 120);
 }
 
-.payment-details-layout{
+.payment-summary-layout{
  align-items: start;
 }
 
-.payment-details-img{
+.payment-summary-img{
   width: 90px;
   height: 90px;
   border-radius: 12px;
@@ -83,7 +83,7 @@
   margin-bottom: 60px;
 }
 
-.btn-payment{
+.btn-order{
   width: 70%;
   display: block;
   padding: 12px 24px;

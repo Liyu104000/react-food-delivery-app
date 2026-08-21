@@ -37,6 +37,7 @@ export function NavBar({ isSignIn, setIsSignIn, cartQuantity}) {
       if (result.isConfirmed) {
         sessionStorage.removeItem("activeUser");
         sessionStorage.removeItem("isUserSignedIn");
+        sessionStorage.removeItem("selectedDeliveryAddress");
 
         goToHome();
         

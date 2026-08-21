@@ -1,11 +1,29 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faClock } from "@fortawesome/free-solid-svg-icons";
+import { useState, useEffect } from "react";
 import "./DeliveryDetails.css";
 
-export function DeliveryDetails() {
+export function DeliveryDetails({ deliveryDate, deliveryTime }) {
+  const [address, setAddress] = useState("");
+
+  useEffect(() => {
+    const selectedAddress = sessionStorage.getItem("selectedDeliveryAddress");
+
+    if(selectedAddress){
+      setAddress(selectedAddress);
+    }else{
+      setAddress("You do not have any saved addresses!")
+    }
+  }, []);
+
+ 
   return (
     <section className="card-base delivery-details-card">
-      <h1 className="delivery-date">Delivery On Feb 9</h1>
+      <h1 className="delivery-date">
+        {deliveryDate === "Today"
+          ? `Deliver ${deliveryDate}`
+          : `Delivery On ${deliveryDate}`}
+      </h1>
 
       <hr />
 
@@ -19,11 +37,9 @@ export function DeliveryDetails() {
         <div className="delivery-row">
           <h2 className="row-heading">Delivery Address</h2>
           <address className="row-body">
-            Bukit Jelutong, 40150 Shah Alam
+            {address}
           </address>
         </div>
-
-        <button className="btn-edit">Edit</button>
       </article>
 
       <hr />
@@ -33,10 +49,8 @@ export function DeliveryDetails() {
 
         <div className="delivery-row">
           <h2 className="row-heading">Delivery Time</h2>
-          <time className="row-body">2:00PM - 2:30PM</time>
+          <time className="row-body">{deliveryTime}</time>
         </div>
-
-        <button className="btn-edit">Edit</button>
       </article>
     </section>
   );

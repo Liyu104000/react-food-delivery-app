@@ -54,7 +54,7 @@ export function Product() {
     };
 
     getIndivProduct();
-  }, [id]);
+  }, []);
 
   if (!indivProduct) {
     return null;

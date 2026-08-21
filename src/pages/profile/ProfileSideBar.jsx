@@ -32,6 +32,8 @@ export function ProfileSideBar({ setIsSignIn }) {
       if (result.isConfirmed) {
         sessionStorage.removeItem("activeUser");
         sessionStorage.removeItem("isUserSignedIn");
+        sessionStorage.removeItem("selectedDeliveryAddress");
+
 
         setIsSignIn(false);
 

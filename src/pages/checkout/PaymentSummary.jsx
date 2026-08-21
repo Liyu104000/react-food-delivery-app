@@ -6,25 +6,25 @@ import "./PaymentSummary.css";
 export function PaymentSummary() {
   const navigate= useNavigate();
 
-  const goToPayment = () => {
-    navigate("/payment")
+  const goToOrders = () => {
+    navigate("/myorders")
   };
 
   return (
-    <section className="card-base payment-details-card">
-      <header className="payment-details-header">
-        <h1 className="payment-details-heading">Review Order</h1>
+    <section className="card-base payment-summary-card">
+      <header className="payment-summary-header">
+        <h1 className="payment-summary-heading">Review Order</h1>
         <p className="checkout-total-quantity"> 1 Item</p>
       </header>
 
       <hr />
 
-      <article className="checkout-body-layout payment-details-layout">
+      <article className="checkout-body-layout payment-summary-layout">
         <img
           src={Macaroni}
           alt="macaroni&cheese"
           width="50px"
-          className="payment-details-img"
+          className="payment-summary-img"
         />
 
         <section className="product-details-container">
@@ -32,7 +32,7 @@ export function PaymentSummary() {
             <p className="product-name product-details-name"> Spaghetti Bolognese</p>
 
             <FontAwesomeIcon
-              className="payment-details-icon"
+              className="payment-summary-icon"
               icon={faTrashAlt}
               size="sm"
               color="red"
@@ -66,7 +66,7 @@ export function PaymentSummary() {
       <footer>
         <p className="payment-total">Total: RM 15.79</p>
 
-        <button className="btn-payment btn-primary" onClick={goToPayment}>Continue To Payment</button>
+        <button className="btn-order btn-primary" onClick={goToOrders}>Place Order</button>
       </footer>
     </section>
   );

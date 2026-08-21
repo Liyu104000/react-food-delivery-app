@@ -51,6 +51,8 @@ export function AddressSearchBar() {
           const fullSavedAddress = `${foundAddress.address}, ${foundAddress.postcode}, ${foundAddress.city}, ${foundAddress.state} `
 
           setSavedAddress(fullSavedAddress);
+
+          sessionStorage.setItem("selectedDeliveryAddress", fullSavedAddress);
         }
       }
     } catch (error) {
@@ -73,6 +75,8 @@ export function AddressSearchBar() {
 
     setSavedAddress(fullSelectedAddress);
     setShowDropdown(false);
+
+    sessionStorage.setItem("selectedDeliveryAddress", fullSelectedAddress);
   };
 
   return (
