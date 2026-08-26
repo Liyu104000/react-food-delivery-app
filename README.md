@@ -4,7 +4,7 @@ Project Status: In Progress
 
 UrbanPlate is a personal learning project built to practice creating a restaurant food-ordering application. I started this project to apply and sharpen the web development skills that I have taught myself during a multi-year medical recovery. My goal is to build standard food delivery features using vanilla front-end technologies and React, without heavily relying on third-party libraries.
 
-Currently, the project features a separated component architecture, with a working authentication system that uses an online mock database for the backend. The rest of the application is primarily static, utilizing placeholder dummy data. I plan to transition these static pages into fully functional features as development progresses. In the future, I hope to expand this into a full-stack application by building a dedicated backend logic system from scratch.
+Currently, the project features a separated component architecture with a working authentication system. The project includes a food ordering menu that retrieves and displays food items from a database, as well as a profile settings page that allows users to update their account information. It also includes a functional cart system where users can add food items to their cart. Supabase, a Backend-as-a-Service (BaaS) platform, is currently used as the database to store and manage the application’s data. In the future, I hope to expand the project into a full-stack application by building a dedicated backend logic system from scratch.
 
 ### Current Features
 
