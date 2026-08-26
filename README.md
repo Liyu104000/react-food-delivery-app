@@ -8,17 +8,18 @@ Currently, the project features a separated component architecture with a workin
 
 ### Current Features
 
-- Custom front-end pages made purely using CSS and React
-- Fully functional Sign In and Register pages with user data validation, duplicate checking, and account registration
-- Integrated Sign In and Register with a remote REST server using mockAPI to simulate backend user databases
-- Utilized React Router to switch between different pages seamlessly
+- Developed custom front-end pages using React and CSS
+- Implemented a functional authentication and account management system
+- Built a food ordering menu that retrieves and displays food items from a database
+- Implemented a functional cart system for adding food items to the cart
+- Integrated the application with Supabase, a Backend-as-a-Service (BaaS) platform
+- Utilized React Router for seamless navigation between pages
 
 ### Upcoming Features
 
-- Integrate the remaining pages with mockAPI to replace all placeholder dummy data with dynamic restaurant meals
-- Build out interactive functionality for the remaining front-end pages of the application
-- Add account management functionality so users can view and edit their profile details
-- Build an order history system where users can review past orders and re-add those exact meals back into the cart if needed
+- Add functionality to remove items from the cart
+- Implement a checkout system that allows users to select their delivery address and preferred payment method
+- Develop an order history page where users can view their previous orders and order the same items again if they wish
 
 ### Technologies Used
 
@@ -26,7 +27,7 @@ Currently, the project features a separated component architecture with a workin
 - Navigation: React Router
 - Icons: FontAwesome Icons
 - Data Transfers: Axios
-- Database Server: mockAPI (REST API simulation)
+- Database Server: Supabase (BAAS)
 
 
 ### Installation & Setup
