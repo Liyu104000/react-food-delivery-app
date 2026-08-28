@@ -5,9 +5,12 @@ import { PaymentSummary } from "./PaymentSummary";
 import "./Checkout.css";
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { useCartQuantity } from "../../utils/cartQuantity";
 
 export function Checkout({deliveryDate, deliveryTime,onEditTime}) {
-  const navigate = useNavigate();
+  const [cartQuantity, , calculateQuantity] = useCartQuantity();
+
+   const navigate = useNavigate();
 
   useEffect(() => {
     const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
@@ -37,7 +40,10 @@ export function Checkout({deliveryDate, deliveryTime,onEditTime}) {
         </section>
 
         <section className="right-column">
-           <PaymentSummary />
+           <PaymentSummary 
+            cartQuantity={cartQuantity}
+            calculateQuantity={calculateQuantity}
+           />
         </section>
       </main>
     </>

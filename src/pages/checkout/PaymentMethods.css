@@ -37,7 +37,7 @@
 .payment-info {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically centers the text block internally */
+  justify-content: center; 
 }
 
 

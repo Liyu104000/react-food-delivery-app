@@ -48,3 +48,12 @@ export async function addToCart(userId, productId, quantity) {
     );
   }
 }
+
+export async function deleteCartItem(cartId){
+  await axios.delete(
+    `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/cart?id=eq.${cartId}`,
+    {
+      headers: { apikey: supaBaseKey },
+    },
+  );
+}

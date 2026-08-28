@@ -1,6 +1,7 @@
 .payment-summary-card{
   width: 450px;
-  height: 470px;
+  height: auto;
+  padding-bottom: 20px;
 }
 
 .payment-summary-header{
@@ -25,24 +26,34 @@
 }
 
 .payment-summary-layout{
- align-items: start;
+ align-items: center;
+ margin-bottom: 20px;
+ width: 100%;
 }
 
 .payment-summary-img{
-  width: 90px;
-  height: 90px;
+  width: 60px;
+  height: 60px;
   border-radius: 12px;
   margin-left: 14px;
 }
 
 .product-details-container{
   margin-top: 14px;
+  flex: 1;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .delete-product-row{
   display: flex;
   align-items: center;
-  gap: 140px;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.payment-summary-icon{
+  cursor: pointer;
 }
 
 .product-details-name{
@@ -87,7 +98,8 @@
   width: 70%;
   display: block;
   padding: 12px 24px;
-  margin: 0 auto;
+  margin-left: auto;
+  margin-right: auto
 }
 
 

@@ -6,8 +6,7 @@ export function useCartQuantity() {
 
   const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
 
-  useEffect(() => {
-    async function calculateQuantity() {
+  const calculateQuantity = async () => {
       try {
         let currentUser = sessionStorage.getItem("activeUser");
 
@@ -35,15 +34,18 @@ export function useCartQuantity() {
             });
 
             setCartQuantity(totalCartQuantity);
+          }else{
+            setCartQuantity(0);
           }
         }
       } catch (error) {
         console.error("Could Not Retrieve Cart Quantity", error.message);
       }
-    }
+    };
 
-    calculateQuantity();
-  }, []);
-
-  return [cartQuantity, setCartQuantity];
+    useEffect(() => {
+      calculateQuantity();
+    },[])
+  
+  return [cartQuantity, setCartQuantity, calculateQuantity];
 }
