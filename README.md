@@ -4,21 +4,22 @@ Project Status: In Progress
 
 UrbanPlate is a personal learning project built to practice creating a restaurant food-ordering application. I started this project to apply and sharpen the web development skills that I have taught myself during a multi-year medical recovery. My goal is to build standard food delivery features using vanilla front-end technologies and React, without heavily relying on third-party libraries.
 
-Currently, the project features a separated component architecture, with a working authentication system that uses an online mock database for the backend. The rest of the application is primarily static, utilizing placeholder dummy data. I plan to transition these static pages into fully functional features as development progresses. In the future, I hope to expand this into a full-stack application by building a dedicated backend logic system from scratch.
+Currently, the project features a separated component architecture with a working authentication system. The project includes a food ordering menu that retrieves and displays food items from a database, as well as a profile settings page that allows users to update their account information. It also includes a functional cart system where users can add food items to their cart. Supabase, a Backend-as-a-Service (BaaS) platform, is currently used as the database to store and manage the application’s data. In the future, I hope to expand the project into a full-stack application by building a dedicated backend logic system from scratch.
 
 ### Current Features
 
-- Custom front-end pages made purely using CSS and React
-- Fully functional Sign In and Register pages with user data validation, duplicate checking, and account registration
-- Integrated Sign In and Register with a remote REST server using mockAPI to simulate backend user databases
-- Utilized React Router to switch between different pages seamlessly
+- Developed custom front-end pages using React and CSS
+- Implemented a functional authentication and account management system
+- Built a food ordering menu that retrieves and displays food items from a database
+- Implemented a functional cart system for adding food items to the cart
+- Integrated the application with Supabase, a Backend-as-a-Service (BaaS) platform
+- Utilized React Router for seamless navigation between pages
 
 ### Upcoming Features
 
-- Integrate the remaining pages with mockAPI to replace all placeholder dummy data with dynamic restaurant meals
-- Build out interactive functionality for the remaining front-end pages of the application
-- Add account management functionality so users can view and edit their profile details
-- Build an order history system where users can review past orders and re-add those exact meals back into the cart if needed
+- Add functionality to remove items from the cart
+- Implement a checkout system that allows users to select their delivery address and preferred payment method
+- Develop an order history page where users can view their previous orders and order the same items again if they wish
 
 ### Technologies Used
 
@@ -26,7 +27,7 @@ Currently, the project features a separated component architecture, with a worki
 - Navigation: React Router
 - Icons: FontAwesome Icons
 - Data Transfers: Axios
-- Database Server: mockAPI (REST API simulation)
+- Database Server: Supabase (BAAS)
 
 
 ### Installation & Setup
