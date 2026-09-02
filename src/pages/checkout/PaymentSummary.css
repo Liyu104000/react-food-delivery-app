@@ -52,6 +52,34 @@
   width: 100%;
 }
 
+.no-items-container{
+  background-color: rgb(250, 251, 252);
+  border: 1px dashed rgb(210, 214, 222); 
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 18px auto 20px auto;
+  max-width: 250px; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.no-items-icon {
+  font-size: 30px;
+  color: #a0aec0; 
+}
+
+.no-items-msg {
+  color: #718096; 
+  font-size: 15px;
+  line-height: 1.6;
+  text-align: center; 
+  margin: 0;
+  padding: 0;
+}
+
 .payment-summary-icon{
   cursor: pointer;
 }
@@ -83,6 +111,7 @@
 
 .payment-discount{
   color: red;
+  font-weight: bolder;
 }
 
 .payment-total{
@@ -101,7 +130,3 @@
   margin-left: auto;
   margin-right: auto
 }
-
-
-
-
