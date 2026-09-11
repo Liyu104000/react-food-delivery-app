@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrashAlt, faShoppingCart} from "@fortawesome/free-solid-svg-icons";
+import { faTrashAlt, faShoppingCart } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import axios from "axios";
@@ -120,6 +120,47 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
     subtotalCents - discountCents + deliveryFeeCents + packagingFeeCents,
   );
 
+  const handlePlaceOrder = async () => {
+    let currentUser = sessionStorage.getItem("activeUser");
+
+    currentUser = JSON.parse(currentUser);
+
+    try {
+      const itemsSnapshot = cartItems.map((cartItem) => ({
+        name: cartItem.name,
+        quantity: cartItem.quantity,
+        priceCents: cartItem.discount_price,
+        image: cartItem.image_url,
+      }));
+
+      const orderData = {
+        user_id: currentUser.id,
+        total: totalCents,
+        status: "Preparing",
+        items: itemsSnapshot,
+      };
+
+      await axios.post(
+        "https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/orders", orderData,
+        {
+          headers: {
+            apikey: supaBaseKey,
+            "Content-Type": "application/json",
+          },
+        },
+      );
+
+      await axios.delete(
+        `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/cart?user_id=eq.${currentUser.id}`,
+        { headers: { apikey: supaBaseKey } },
+      );
+
+      goToOrders();
+    } catch (error) {
+       Swal.fire("Failed To Place Order: " + error.message);
+    }
+  };
+
   const goToOrders = () => {
     navigate("/myorders");
   };
@@ -191,7 +232,8 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
         <section className="no-items-container">
           <FontAwesomeIcon icon={faShoppingCart} className="no-items-icon" />
           <p className="no-items-msg">
-            Your cart is empty<br />
+            Your cart is empty
+            <br />
             Add some dishes to get started.
           </p>
         </section>
@@ -220,7 +262,7 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
 
         <button
           className={`btn-order ${cartQuantity === 0 ? "btn-success-disable" : "btn-success"}`}
-          onClick={goToOrders}
+          onClick={() => handlePlaceOrder()}
           disabled={cartQuantity === 0}
         >
           Place Order

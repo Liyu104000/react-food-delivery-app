@@ -49,22 +49,6 @@
   margin-left: 180px;
 }
 
-.delivery-address-container{
-  background-color: lightgray;
-  border-radius: 10px;
-  margin-left: 30px;
-  margin-right: 30px;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.delivery-address{
-  font-size: 14px;
-}
-
 .order-items{
   margin-left: 100px;
 }
