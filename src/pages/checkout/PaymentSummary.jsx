@@ -40,6 +40,7 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
 
               return {
                 id: item.id,
+                product_id: item.product_id, 
                 quantity: item.quantity,
                 name: product?.name,
                 priceCents: product?.price,
@@ -121,16 +122,18 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
   );
 
   const handlePlaceOrder = async () => {
+   
     let currentUser = sessionStorage.getItem("activeUser");
 
     currentUser = JSON.parse(currentUser);
 
     try {
       const itemsSnapshot = cartItems.map((cartItem) => ({
+        product_id: cartItem.product_id, 
         name: cartItem.name,
         quantity: cartItem.quantity,
-        priceCents: cartItem.discount_price,
-        image: cartItem.image_url,
+        priceCents: cartItem.discountPriceCents || cartItem.priceCents,
+        image: cartItem.imageUrl,
       }));
 
       const orderData = {

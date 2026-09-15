@@ -1,4 +1,4 @@
-import { NavBar } from "../../components/layout/nav/Navbar";
+import { NavBar } from "../../components/layout/nav/NavBar";
 import { Sidebar } from "./Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
 import { MenuItem } from "./MenuItem";
