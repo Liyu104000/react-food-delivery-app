@@ -12,7 +12,7 @@ import { formatCurrency } from "../../utils/money";
 import { addToCart } from "../../utils/cartService";
 import "./OrderHistory.css";
 
-export function OrderHistory({calculateQuantity}) {
+export function OrderHistory({ calculateQuantity }) {
   const [orders, setOrders] = useState([]);
 
   const [currentTime, setCurrentTime] = useState(dayjs());
@@ -61,6 +61,7 @@ export function OrderHistory({calculateQuantity}) {
         icon: faUtensils,
         bgColor: " rgb(241, 196, 15)",
         message: "Preparing Your Order",
+        isDelivered: false,
       };
     } else if (minutesElasped < 2) {
       return {
@@ -68,6 +69,7 @@ export function OrderHistory({calculateQuantity}) {
         icon: faTruck,
         bgColor: " rgb(253, 126, 20)",
         message: "Rider Is Out For Delivery",
+        isDelivered: false,
       };
     } else {
       const deliveryTime = orderPlaced.add(2, "minute");
@@ -77,6 +79,7 @@ export function OrderHistory({calculateQuantity}) {
         icon: faCircleCheck,
         bgColor: "rgb(40, 167, 69)",
         message: `Delivered On ${deliveryTime.format("MMM D")} at ${deliveryTime.format("h:mm A")}`,
+        isDelivered: true,
       };
     }
   };
@@ -99,21 +102,18 @@ export function OrderHistory({calculateQuantity}) {
         timerProgressBar: true,
       });
 
-      try{
-        for(const item of orderItems){
+      try {
+        for (const item of orderItems) {
           console.log(item);
-
 
           await addToCart(currentUser.id, item.product_id, item.quantity);
         }
 
         calculateQuantity();
-
-      }catch(error){
+      } catch (error) {
         console.error("Items Can Not Be Added Back To Cart", error.message);
       }
     }
-  
   };
 
   return (
@@ -179,12 +179,14 @@ export function OrderHistory({calculateQuantity}) {
                 Total: {formatCurrency(order.total)}
               </p>
 
-              <button
-                className="btn-outline-success btn-order-again"
-                onClick={() => handleOrderAgain(order.items)}
-              >
-                Order Again
-              </button>
+              {liveStatus.isDelivered && (
+                <button
+                  className="btn-outline-success btn-order-again"
+                  onClick={() => handleOrderAgain(order.items)}
+                >
+                  Order Again
+                </button>
+              )}
             </footer>
           </article>
         );
