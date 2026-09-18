@@ -20,6 +20,7 @@
   align-items: center;
   gap: 14px;
   padding: 20px 30px;
+  width: 100%;
 }
 
 .order-status-container{
@@ -27,11 +28,11 @@
  color: white;
  border: none;
  border-radius: 20px;
- width: 80px;
  display: flex;
  align-items: center;
+ justify-content: center;
  gap: 6px;
- padding: 4px 8px;
+ padding: 6px 12px;
 }
 
 .order-status{
@@ -46,7 +47,8 @@
 }
 
 .order-id-container{
-  margin-left: 180px;
+  margin-left: auto;
+  padding-right: 50px; 
 }
 
 .order-items{

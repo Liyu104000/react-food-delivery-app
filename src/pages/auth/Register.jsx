@@ -31,7 +31,7 @@ export function Register() {
       ) {
         throw new Error("All fields must be provided!");
       } else if (password !== confirmPassword) {
-        throw new Error("Password Confirmation does not match");
+        throw new Error("Password fields must match! ");
       } else if (!email.includes("@")) {
         throw new Error("Email must include @!");
       }

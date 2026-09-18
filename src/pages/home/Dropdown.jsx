@@ -11,6 +11,8 @@ export function Dropdown({
   setDeliveryTime,
   initialTimeSlotLabel,
 }) {
+  const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
+
   const calculateDeliveryDates = () => {
     const deliveryDates = [];
 
@@ -168,9 +170,9 @@ export function Dropdown({
 
           <footer>
             <button
-              className={`btn-confirm ${dynamicDeliveryTimes.length === 0 ? "btn-success-disable" : "btn-success"}`}
+              className={`btn-confirm ${dynamicDeliveryTimes.length === 0 || !isUserSignedIn  ? "btn-success-disable" : "btn-success"}`}
               onClick={handleConfirm}
-              disabled={dynamicDeliveryTimes.length === 0}
+              disabled={dynamicDeliveryTimes.length === 0 || !isUserSignedIn === 0}
             >
               Confirm
             </button>

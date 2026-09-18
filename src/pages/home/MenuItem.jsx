@@ -2,12 +2,45 @@ import { useState } from "react";
 import { formatCurrency } from "../../utils/money";
 import { Link } from "react-router";
 import Swal from "sweetalert2";
+import dayjs from "dayjs";
 import { addToCart } from "../../utils/cartService";
 import "../../components/shared/ProductShared.css";
 import "./MenuItem.css";
 
 export function MenuItem({ categoryHeading, products, setCartQuantity }) {
   const [quantities, setQuantities] = useState({});
+
+  const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
+
+  const calculateIsStoreClosedToday = () => {
+    const currentTime = dayjs();
+    const openingTime = dayjs().hour(9).minute(0).second(0);
+    const closingTime = dayjs().hour(17).minute(0).second(0);
+
+    let timeTracker;
+
+    if (currentTime.isBefore(openingTime)) {
+      timeTracker = openingTime;
+    } else {
+      const currentMinutes = currentTime.minute();
+      timeTracker = dayjs()
+        .minute(currentMinutes < 30 ? 0 : 30)
+        .second(0);
+    }
+
+    let availableSlotsCount = 0;
+    for (let i = 1; i <= 8; i++) {
+      if (timeTracker.isAfter(closingTime) || timeTracker.isSame(closingTime)) {
+        break;
+      }
+      availableSlotsCount++;
+      timeTracker = timeTracker.add(30, "minute"); 
+    }
+
+    return availableSlotsCount === 0;
+  };
+
+  const isClosed = calculateIsStoreClosedToday();
 
   const handleQuantityChange = (productId, selectedValue) => {
     setQuantities((prev) => ({
@@ -25,10 +58,9 @@ export function MenuItem({ categoryHeading, products, setCartQuantity }) {
 
         const selectedQuantity = quantities[product.id] || 1;
 
-
         await addToCart(currentUser.id, product.id, selectedQuantity);
 
-        setCartQuantity((prevCount) => (prevCount + selectedQuantity));
+        setCartQuantity((prevCount) => prevCount + selectedQuantity);
 
         Swal.fire({
           toast: true,
@@ -112,8 +144,9 @@ export function MenuItem({ categoryHeading, products, setCartQuantity }) {
             </section>
 
             <button
-              className="product-btn btn-primary add-cart-btn"
+              className={`product-btn ${isClosed || !isUserSignedIn ? "btn-primary-disable" : "btn-primary"} add-cart-btn`}
               onClick={() => handleAddToCart(product)}
+              disabled={isClosed || !isUserSignedIn}
             >
               Add To Cart
             </button>
