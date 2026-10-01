@@ -7,7 +7,7 @@ import Swal from "sweetalert2";
 import { formatCurrency } from "../../utils/money";
 import { deleteCartItem } from "../../utils/cartService";
 import "./PaymentSummary.css";
-export function PaymentSummary({ cartQuantity, calculateQuantity }) {
+export function PaymentSummary({ cartQuantity, calculateQuantity, address }) {
   const [cartItems, setCartItems] = useState([]);
   const [refreshPage, setRefreshPage] = useState(false);
 
@@ -264,9 +264,9 @@ export function PaymentSummary({ cartQuantity, calculateQuantity }) {
         <p className="payment-total">{`Total: ${formatCurrency(totalCents)}`}</p>
 
         <button
-          className={`btn-order ${cartQuantity === 0 ? "btn-success-disable" : "btn-success"}`}
+          className={`btn-order ${cartQuantity === 0 || address === null ? "btn-success-disable" : "btn-success"}`}
           onClick={() => handlePlaceOrder()}
-          disabled={cartQuantity === 0}
+          disabled={cartQuantity === 0 || address === null }
         >
           Place Order
         </button>

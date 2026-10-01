@@ -36,7 +36,7 @@ export function AddressSearchBar() {
 
       const addressList = response.data;
 
-      if ((addressList, addressList.length > 0)) {
+      if ((addressList.length > 0)) {
         const sortedAddresses = addressList.sort(
           (a, b) => b.is_default - a.is_default,
         );
@@ -48,12 +48,16 @@ export function AddressSearchBar() {
         );
 
         if (foundAddress) {
-          const fullSavedAddress = `${foundAddress.address}, ${foundAddress.postcode}, ${foundAddress.city}, ${foundAddress.state} `
+          const fullSavedAddress = `${foundAddress.address}, ${foundAddress.postcode}, ${foundAddress.city}, ${foundAddress.state} `;
 
           setSavedAddress(fullSavedAddress);
 
           sessionStorage.setItem("selectedDeliveryAddress", fullSavedAddress);
         }
+      } else {
+        setSavedAddressesList([]);
+        setSavedAddress("");
+        sessionStorage.removeItem("selectedDeliveryAddress");
       }
     } catch (error) {
       console.log("Could Not Retrieve Saved Addresses", error);
@@ -71,7 +75,7 @@ export function AddressSearchBar() {
   }, []);
 
   const handleSelectedAddress = (selectedAddress) => {
-    const fullSelectedAddress = `${selectedAddress.address}, ${selectedAddress.postcode}, ${selectedAddress.city}, ${selectedAddress.state} `
+    const fullSelectedAddress = `${selectedAddress.address}, ${selectedAddress.postcode}, ${selectedAddress.city}, ${selectedAddress.state} `;
 
     setSavedAddress(fullSelectedAddress);
     setShowDropdown(false);
@@ -89,17 +93,27 @@ export function AddressSearchBar() {
         onClick={() => setShowDropdown(true)}
       />
 
-      {showDropdown && savedAddressesList.length > 0 && (
+      {showDropdown && (
         <section className="saved-address-dropdown">
-          {savedAddressesList.map((savedAddress) => (
-            <section
-              key={savedAddress.id}
-              className="saved-address-container"
-              onClick={() => handleSelectedAddress(savedAddress)}
-            >
-              <p className="saved-address">{`${savedAddress.address}, ${savedAddress.postcode}, ${savedAddress.city}, ${savedAddress.state}`}</p>
+          {savedAddressesList.length > 0 ? (
+            savedAddressesList.map((savedAddress) => (
+              <section
+                key={savedAddress.id}
+                className="saved-address-container"
+                onClick={() => handleSelectedAddress(savedAddress)}
+              >
+                <p className="saved-address">
+                  {`${savedAddress.address}, ${savedAddress.postcode}, ${savedAddress.city}, ${savedAddress.state}`}
+                </p>
+              </section>
+            ))
+          ) : (
+            <section className="saved-address-container">
+              <p className="saved-address">
+                No address found
+              </p>
             </section>
-          ))}
+          )}
         </section>
       )}
 

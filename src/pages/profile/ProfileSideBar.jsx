@@ -15,6 +15,8 @@ import "./ProfileSideBar.css";
 export function ProfileSideBar({ setIsSignIn }) {
   const navigate = useNavigate();
 
+  const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
+
   const handleSignOut = (e) => {
     e.preventDefault();
 
@@ -33,7 +35,6 @@ export function ProfileSideBar({ setIsSignIn }) {
         sessionStorage.removeItem("activeUser");
         sessionStorage.removeItem("isUserSignedIn");
         sessionStorage.removeItem("selectedDeliveryAddress");
-
 
         setIsSignIn(false);
 
@@ -58,17 +59,15 @@ export function ProfileSideBar({ setIsSignIn }) {
       if (result.isConfirmed) {
         let currentUser = sessionStorage.getItem("activeUser");
 
-        if (!currentUser) {
-          return;
-        }
-
         currentUser = JSON.parse(currentUser);
-
-        const userId = currentUser.id;
 
         try {
           await axios.delete(
-            `https://6a4b259cf5eab0bb6b6245aa.mockapi.io/users/${userId}`,
+            `https://gnabjjxwssaypmwlyegq.supabase.co/rest/v1/users?id=eq.${currentUser.id}`, {
+              headers: {
+                apikey: supaBaseKey,
+              }
+            }
           );
 
           sessionStorage.removeItem("activeUser");
@@ -78,7 +77,11 @@ export function ProfileSideBar({ setIsSignIn }) {
 
           navigate("/");
         } catch (error) {
-          console.error("Error Deleting User Profile Record", error.message);
+          console.error("DELETE ERROR:", error);
+          console.error("STATUS:", error.response?.status);
+          console.error("DATA:", error.response?.data);
+          console.error("USER:", currentUser);
+          console.error("USER ID:", currentUser?.id);
           Swal.fire({
             title: "Error!",
             text: "Failed To Delete Account.Please Try Again Later.",
@@ -93,12 +96,7 @@ export function ProfileSideBar({ setIsSignIn }) {
   return (
     <nav className="profile-sidebar-links">
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon
-          icon={faUserCircle}
-          size="lg"
-          color="black"
-          fixedWidth
-        />
+        <FontAwesomeIcon icon={faUserCircle} size="lg" color="black" />
 
         <a href="#account-details" className="profile-sidebar-link">
           Account Details
@@ -106,12 +104,7 @@ export function ProfileSideBar({ setIsSignIn }) {
       </div>
 
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon
-          icon={faCreditCard}
-          size="lg"
-          color="black"
-          fixedWidth
-        />
+        <FontAwesomeIcon icon={faCreditCard} size="lg" color="black" />
 
         <a href="#saved-cards" className="profile-sidebar-link">
           Saved Cards
@@ -119,12 +112,7 @@ export function ProfileSideBar({ setIsSignIn }) {
       </div>
 
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon
-          icon={faLocationDot}
-          size="lg"
-          color="black"
-          fixedWidth
-        />
+        <FontAwesomeIcon icon={faLocationDot} size="lg" color="black" />
 
         <a href="#saved-addresses" className="profile-sidebar-link">
           Saved Addresses
@@ -132,7 +120,7 @@ export function ProfileSideBar({ setIsSignIn }) {
       </div>
 
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon icon={faKey} size="lg" color="black" fixedWidth />
+        <FontAwesomeIcon icon={faKey} size="lg" color="black" />
 
         <a href="#update-password" className="profile-sidebar-link">
           Update Password
@@ -140,7 +128,7 @@ export function ProfileSideBar({ setIsSignIn }) {
       </div>
 
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon icon={faSignOut} size="lg" color="black" fixedWidth />
+        <FontAwesomeIcon icon={faSignOut} size="lg" color="black" />
 
         <Link to="#" className="profile-sidebar-link" onClick={handleSignOut}>
           Sign Out
@@ -148,7 +136,7 @@ export function ProfileSideBar({ setIsSignIn }) {
       </div>
 
       <div className="profile-sidebar-item">
-        <FontAwesomeIcon icon={faTrashCan} size="lg" color="red" fixedWidth />
+        <FontAwesomeIcon icon={faTrashCan} size="lg" color="red" />
 
         <Link
           to="#"

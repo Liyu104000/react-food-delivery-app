@@ -1,18 +1,17 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot, faClock } from "@fortawesome/free-solid-svg-icons";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import "./DeliveryDetails.css";
 
-export function DeliveryDetails({ deliveryDate, deliveryTime }) {
-  const [address, setAddress] = useState("");
-
+export function DeliveryDetails({ deliveryDate, deliveryTime, address, setAddress }) {
+ 
   useEffect(() => {
     const selectedAddress = sessionStorage.getItem("selectedDeliveryAddress");
 
     if(selectedAddress){
       setAddress(selectedAddress);
     }else{
-      setAddress("You do not have any saved addresses!")
+      setAddress("")
     }
   }, []);
 
@@ -37,7 +36,7 @@ export function DeliveryDetails({ deliveryDate, deliveryTime }) {
         <div className="delivery-row">
           <h2 className="row-heading">Delivery Address</h2>
           <address className="row-body">
-            {address}
+            {address ? address : "You have not selected any address!"}
           </address>
         </div>
       </article>

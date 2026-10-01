@@ -11,7 +11,8 @@ export function DeliveryInfo({
   return (
     <>
       <section className="delivery-info-container">
-        <AddressSearchBar />
+        <AddressSearchBar
+         />
 
         <Dropdown
           deliveryDate={deliveryDate}

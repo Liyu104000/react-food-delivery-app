@@ -3,12 +3,13 @@ import { DeliveryDetails } from "./DeliveryDetails";
 import { PaymentMethods } from "./PaymentMethods";
 import { PaymentSummary } from "./PaymentSummary";
 import "./Checkout.css";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
 import { useCartQuantity } from "../../utils/cartQuantity";
 
 export function Checkout({ deliveryDate, deliveryTime, onEditTime }) {
   const [cartQuantity, , calculateQuantity] = useCartQuantity();
+  const [address, setAddress] = useState("");
 
   const navigate = useNavigate();
 
@@ -34,6 +35,8 @@ export function Checkout({ deliveryDate, deliveryTime, onEditTime }) {
             deliveryDate={deliveryDate}
             deliveryTime={deliveryTime}
             onEditTime={onEditTime}
+            address={address}
+            setAddress={setAddress}
           />
           <PaymentMethods />
         </section>
@@ -42,6 +45,7 @@ export function Checkout({ deliveryDate, deliveryTime, onEditTime }) {
           <PaymentSummary
             cartQuantity={cartQuantity}
             calculateQuantity={calculateQuantity}
+            address={address}
           />
         </section>
       </main>

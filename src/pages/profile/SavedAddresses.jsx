@@ -355,6 +355,7 @@ export function SavedAddresses() {
           });
 
           getAddresses(userId);
+          sessionStorage.removeItem("selectedDeliveryAddress");
         } catch (error) {
           Swal.fire("Failed To Remove Address", error);
         }

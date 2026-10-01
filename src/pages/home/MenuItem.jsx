@@ -7,7 +7,7 @@ import { addToCart } from "../../utils/cartService";
 import "../../components/shared/ProductShared.css";
 import "./MenuItem.css";
 
-export function MenuItem({ categoryHeading, products, setCartQuantity }) {
+export function MenuItem({ categoryHeading, products, setCartQuantity}) {
   const [quantities, setQuantities] = useState({});
 
   const isUserSignedIn = sessionStorage.getItem("isUserSignedIn") === "true";
