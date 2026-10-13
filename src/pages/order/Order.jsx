@@ -4,8 +4,8 @@ import { useCartQuantity } from "../../utils/cartQuantity";
 import { useNavigate } from "react-router";
 import { useEffect} from "react";
 
-export function Order() {
-  const [cartQuantity, calculateQuantity] = useCartQuantity();
+export function Order({isSignIn, setIsSignIn}) {
+  const [cartQuantity, , calculateQuantity] = useCartQuantity();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export function Order() {
       <title>My Orders | UrbanPlate</title>
 
       <header>
-        <NavBar cartQuantity={cartQuantity} />
+        <NavBar cartQuantity={cartQuantity} isSignIn={isSignIn} setIsSignIn={setIsSignIn}/>
       </header>
 
       <main>

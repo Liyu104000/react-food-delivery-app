@@ -1,10 +1,10 @@
-import { NavBar } from "../../components/layout/nav/Navbar";
+import { NavBar } from "../../components/layout/nav/NavBar";
 import { ProfileSideBar } from "./ProfileSideBar";
 import { ProfileSettings } from "./ProfileSettings";
 import { useCartQuantity } from "../../utils/cartQuantity";
 import "./Profile.css";
 
-export function Profile({setIsSignIn}) {
+export function Profile({isSignIn,setIsSignIn}) {
   const [cartQuantity, setCartQuantity] = useCartQuantity();
   
   return (
@@ -15,6 +15,8 @@ export function Profile({setIsSignIn}) {
         <NavBar 
           cartQuantity={cartQuantity}
           setCartQuantity={setCartQuantity}
+          isSignIn={isSignIn}
+          setIsSignIn={setIsSignIn}
         />
       </header>
 

@@ -4,7 +4,7 @@ import { faLocation } from "@fortawesome/free-solid-svg-icons";
 import axios from "axios";
 import "./AddressSearchBar.css";
 
-export function AddressSearchBar() {
+export function AddressSearchBar({ isSignIn }) {
   const [savedAddressesList, setSavedAddressesList] = useState([]);
   const [savedAddress, setSavedAddress] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -12,6 +12,14 @@ export function AddressSearchBar() {
   const dropdownRef = useRef(null);
 
   const supaBaseKey = "sb_publishable_ZIOKEvOvRLJy85giPUzWOA_IQ6HDSdg";
+
+  useEffect(() => {
+    if (!isSignIn) {
+      setSavedAddress("");
+      setSavedAddressesList([]);
+      setShowDropdown(false);
+    }
+  }, [isSignIn]);
 
   useEffect(() => {
     let currentUser = sessionStorage.getItem("activeUser");
@@ -36,7 +44,7 @@ export function AddressSearchBar() {
 
       const addressList = response.data;
 
-      if ((addressList.length > 0)) {
+      if (addressList.length > 0) {
         const sortedAddresses = addressList.sort(
           (a, b) => b.is_default - a.is_default,
         );
@@ -109,9 +117,7 @@ export function AddressSearchBar() {
             ))
           ) : (
             <section className="saved-address-container">
-              <p className="saved-address">
-                No address found
-              </p>
+              <p className="saved-address">No address found</p>
             </section>
           )}
         </section>

@@ -2,11 +2,11 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router";
 import axios from "axios";
 import { useCartQuantity } from "../../utils/cartQuantity";
-import { NavBar } from "../../components/layout/nav/Navbar";
+import { NavBar } from "../../components/layout/nav/NavBar";
 import { ProductImage } from "./ProductImage";
 import { ProductDetail } from "./ProductDetail";
 import "./Product.css";
-export function Product() {
+export function Product({isSignIn,setIsSignIn}) {
   const [indivProduct, setIndivProduct] = useState(null);
   const [cartQuantity, setCartQuantity] = useCartQuantity();
 
@@ -65,7 +65,7 @@ export function Product() {
       <title>{`${indivProduct?.name || "Welcome To"}| UrbanPlate`}</title>
 
       <header>
-        <NavBar cartQuantity={cartQuantity} />
+        <NavBar cartQuantity={cartQuantity} isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
       </header>
 
       <main className="product-container">

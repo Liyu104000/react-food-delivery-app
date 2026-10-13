@@ -63,7 +63,7 @@ export function OrderHistory({ calculateQuantity }) {
         message: "Preparing Your Order",
         isDelivered: false,
       };
-    } else if (minutesElasped < 2) {
+    } else if (minutesElasped < 1.5) {
       return {
         label: "Delivering",
         icon: faTruck,
@@ -85,7 +85,6 @@ export function OrderHistory({ calculateQuantity }) {
   };
 
   const handleOrderAgain = async (orderItems) => {
-    console.log(orderItems);
 
     let currentUser = sessionStorage.getItem("activeUser");
 
@@ -104,9 +103,8 @@ export function OrderHistory({ calculateQuantity }) {
 
       try {
         for (const item of orderItems) {
-          console.log(item);
-
           await addToCart(currentUser.id, item.product_id, item.quantity);
+
         }
 
         calculateQuantity();

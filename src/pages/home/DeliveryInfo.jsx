@@ -7,11 +7,13 @@ export function DeliveryInfo({
   deliveryTime,
   setDeliveryTime,
   initialTimeSlotLabel,
+  isSignIn,
 }) {
   return (
     <>
       <section className="delivery-info-container">
         <AddressSearchBar
+          isSignIn={isSignIn}
          />
 
         <Dropdown

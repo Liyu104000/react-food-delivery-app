@@ -1,5 +1,5 @@
 import { Routes, Route, useLocation } from "react-router";
-import { NavBar } from "./components/layout/nav/Navbar";
+import { NavBar } from "./components/layout/nav/NavBar";
 import { Home } from "./pages/home/Home";
 import { Product } from "./pages/product/Product";
 import { Checkout } from "./pages/checkout/Checkout";
@@ -46,6 +46,8 @@ function App() {
               deliveryTime={deliveryTime}
               setDeliveryTime={setDeliveryTime}
               initialTimeSlotLabel={initialTimeSlotLabel}
+              isSignIn={isSignIn}
+              setIsSignIn={setIsSignIn}
             />
           }
         />
@@ -61,10 +63,13 @@ function App() {
 
         <Route
           path="/profile"
-          element={<Profile setIsSignIn={setIsSignIn} />}
+          element={<Profile isSignIn={isSignIn} setIsSignIn={setIsSignIn} />}
         />
 
-        <Route path="/myorders" element={<Order />} />
+        <Route path="/myorders" element={<Order 
+           isSignIn={isSignIn}
+           setIsSignIn={setIsSignIn}
+        />} />
 
         <Route path="/signin" element={<SignIn setIsSignIn={setIsSignIn} />} />
 

@@ -5,7 +5,7 @@ import { NavLink, Link, useNavigate } from "react-router";
 import Swal from "sweetalert2";
 import "./NavBar.css";
 
-export function NavBar({ isSignIn, setIsSignIn, cartQuantity }) {
+export function NavBar({ isSignIn, setIsSignIn, cartQuantity}) {
   const navigate = useNavigate();
 
   const hasActiveSession = sessionStorage.getItem("isUserSignedIn") === "true";
@@ -15,6 +15,10 @@ export function NavBar({ isSignIn, setIsSignIn, cartQuantity }) {
   const goToCheckout = () => {
     navigate("/checkout");
   };
+
+  const goToHome = () => {
+    navigate("/")
+  }
 
   const handleSignOut = (e) => {
     e.preventDefault();
@@ -35,9 +39,10 @@ export function NavBar({ isSignIn, setIsSignIn, cartQuantity }) {
         sessionStorage.removeItem("isUserSignedIn");
         sessionStorage.removeItem("selectedDeliveryAddress");
 
+        goToHome();
+        
         setIsSignIn(false);
 
-        navigate("/");
       }
     });
   };
@@ -86,10 +91,10 @@ export function NavBar({ isSignIn, setIsSignIn, cartQuantity }) {
           onClick={goToCheckout}
         />
 
-        {userIsAuthenticated && (
-          <span className="cart-quantity">{cartQuantity}</span>
-        )}
+        {userIsAuthenticated && <span className="cart-quantity">{cartQuantity}</span>}
       </section>
     </section>
   );
 }
+
+

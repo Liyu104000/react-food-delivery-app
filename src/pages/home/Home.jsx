@@ -1,4 +1,4 @@
-import { NavBar } from "../../components/layout/nav/Navbar";
+import { NavBar } from "../../components/layout/nav/NavBar";
 import { Sidebar } from "./Sidebar";
 import { DeliveryInfo } from "./DeliveryInfo";
 import { MenuItem } from "./MenuItem";
@@ -22,6 +22,8 @@ export function Home({
   deliveryTime,
   setDeliveryTime,
   initialTimeSlotLabel,
+  isSignIn,
+  setIsSignIn,
 }) {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("daily-promotion");
@@ -87,7 +89,7 @@ export function Home({
       <title>Home | UrbanPlate</title>
 
       <header>
-        <NavBar cartQuantity={cartQuantity} />
+        <NavBar cartQuantity={cartQuantity} isSignIn={isSignIn} setIsSignIn={setIsSignIn} />
       </header>
 
       <main>
@@ -100,6 +102,7 @@ export function Home({
             deliveryTime={deliveryTime}
             setDeliveryTime={setDeliveryTime}
             initialTimeSlotLabel={initialTimeSlotLabel}
+            isSignIn={isSignIn}
           />
         </section>
 
